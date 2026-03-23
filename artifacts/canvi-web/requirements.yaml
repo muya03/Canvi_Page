@@ -1,0 +1,18 @@
+packages:
+  "framer-motion": "For high-quality page transitions and scroll-triggered animations that give the civic brand dynamic energy"
+  "clsx": "Utility for conditionally joining classNames together"
+  "tailwind-merge": "Utility to cleanly merge Tailwind classes without style conflicts"
+  "react-hook-form": "For robust contact form state management"
+  "@hookform/resolvers": "For validating contact form with Zod"
+
+images:
+  - path: "artifacts/canvi-web/public/images/hero-bg.png"
+    description: "Abstract fluid gradient mesh background in deep dark violet, bright orange, and cyan, conveying dynamic civic energy and student activism, extremely dark overall tone to allow white text overlay"
+    aspect_ratio: "16:9"
+  - path: "artifacts/canvi-web/public/images/abstract-mesh.png"
+    description: "Dark geometric grid pattern with subtle glowing purple and red intersections, minimal and futuristic, perfect as a subtle section background"
+    aspect_ratio: "16:9"
+
+notes:
+  - Mocking the contact form API submission since there is no backend defined
+  - Using Hash routing for single-page navigation to sections

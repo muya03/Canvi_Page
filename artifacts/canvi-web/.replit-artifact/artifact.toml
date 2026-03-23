@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Canvi - Plataforma Digital"
+version = "1.0.0"
+id = "artifacts/canvi-web"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20298
+
+[services.development]
+run = "pnpm --filter @workspace/canvi-web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/canvi-web", "run", "build" ]
+publicDir = "artifacts/canvi-web/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20298"
+BASE_PATH = "/"
