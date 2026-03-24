@@ -56,11 +56,11 @@ export function Contact() {
             </p>
 
             <div className="space-y-6">
-              <a href="https://instagram.com/informerjaumei" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg font-bold hover:text-primary transition-colors group text-foreground">
+              <a href="https://instagram.com/canvi_uji" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg font-bold hover:text-primary transition-colors group text-foreground">
                 <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors border border-border">
                   <Instagram />
                 </div>
-                @informerjaumei
+                @canvi_uji
               </a>
               <div className="flex items-center gap-4 text-lg font-bold text-foreground">
                 <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center border border-border">
@@ -72,7 +72,7 @@ export function Contact() {
                 <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center border border-border">
                   <Mail />
                 </div>
-                contacto@canvi-uji.es
+                info@canvi.es
               </div>
             </div>
           </motion.div>

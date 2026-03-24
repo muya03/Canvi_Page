@@ -63,13 +63,13 @@ export default function ContactoPage() {
               </p>
 
               <div className="space-y-8 mb-12">
-                <a href="https://instagram.com/informerjaumei" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 text-lg font-bold hover:text-primary transition-colors group text-foreground p-4 rounded-xl hover:bg-muted border border-transparent hover:border-border">
+                <a href="https://instagram.com/canvi_uji" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 text-lg font-bold hover:text-primary transition-colors group text-foreground p-4 rounded-xl hover:bg-muted border border-transparent hover:border-border">
                   <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors border border-border shadow-sm">
                     <Instagram size={28} />
                   </div>
                   <div>
                     <span className="block text-sm text-muted-foreground uppercase tracking-wider mb-1 font-sans">Instagram</span>
-                    @informerjaumei
+                    @canvi_uji
                   </div>
                 </a>
                 
@@ -79,7 +79,7 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <span className="block text-sm text-muted-foreground uppercase tracking-wider mb-1 font-sans">Email</span>
-                    contacto@canvi-uji.es
+                    info@canvi.es
                   </div>
                 </div>
 

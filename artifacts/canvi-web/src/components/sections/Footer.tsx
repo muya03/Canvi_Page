@@ -36,13 +36,13 @@ export function Footer() {
           <div className="flex flex-col items-start md:items-end">
             <h4 className="font-display font-bold text-lg uppercase tracking-wider mb-6 text-white">Social</h4>
             <a 
-              href="https://instagram.com/informerjaumei" 
+              href="https://instagram.com/canvi_uji" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-secondary-foreground/80 hover:text-primary transition-colors font-medium"
             >
               <Instagram size={20} />
-              @informerjaumei
+              @canvi_uji
             </a>
           </div>
         </div>

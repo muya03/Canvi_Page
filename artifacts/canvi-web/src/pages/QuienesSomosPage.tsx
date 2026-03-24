@@ -8,12 +8,17 @@ export default function QuienesSomosPage() {
   const { t } = useLanguage();
 
   const teamMembers = [
-    { initials: "MH", name: "Mohamed Al Howaidi", role: "Portavoz / Candidato", bio: "Liderando la candidatura de Canvi para 2026." },
-    { initials: "M2", name: "Maria Garcia", role: "Delegada de Centre FCHS", bio: "Representando los intereses de Ciencias Humanas y Sociales." },
-    { initials: "M3", name: "Carlos Perez", role: "Delegat de Centre FCJE", bio: "Defendiendo los derechos en Ciencias Jurídicas y Económicas." },
-    { initials: "M4", name: "Laura Martinez", role: "Coordinadora de Grau", bio: "Garantizando una coordinación fluida entre estudiantes y profesores." },
-    { initials: "M5", name: "Joan Fabra", role: "Membre del Consell", bio: "Voz activa en el máximo órgano de representación estudiantil." },
-    { initials: "M6", name: "Ana Torres", role: "Responsable de Comunicació", bio: "Manteniendo informada a toda la comunidad universitaria." },
+    { initials: "PI", name: "Praise Ijeoma Iheanyi Anyanwu", role: "Cabeza de Lista · Candidata a Presidenta", bio: "Lidera la candidatura de Canvi 2026 con vocación de servicio y compromiso con toda la comunidad universitaria.", featured: true },
+    { initials: "MA", name: "Mohamed Al Howaidi Nasralla", role: "Membre del Consell de l'Estudiantat", bio: "Impulsor del proyecto Canvi desde sus inicios, con amplia experiencia en representación estudiantil." },
+    { initials: "DB", name: "Dhirar Abdelkader Bahloul Rouab", role: "Membre del Consell de l'Estudiantat", bio: "Trabaja por garantizar una representación efectiva para cada estudiante de la UJI." },
+    { initials: "SB", name: "Santiago Bernabé Hernández", role: "Membre del Consell de l'Estudiantat", bio: "Comprometido con la mejora del bienestar y los derechos del estudiantado." },
+    { initials: "AL", name: "Álex López Damas", role: "Membre del Consell de l'Estudiantat", bio: "Aporta creatividad y energía al proyecto para una universidad mejor." },
+    { initials: "SP", name: "Sergi Pérez Serra", role: "Delegado de Centro · ESTCE", bio: "Representa a los estudiantes de la Escola Superior de Tecnologia i Ciències Experimentals." },
+    { initials: "KA", name: "Karen Abrego Rosas", role: "Membre del Consell de l'Estudiantat", bio: "Defiende los intereses del estudiantado con determinación y rigor." },
+    { initials: "OE", name: "Otman El Hakmaoui Sakif", role: "Membre del Consell de l'Estudiantat", bio: "Trabaja activamente para ampliar la voz estudiantil en todos los órganos de la universidad." },
+    { initials: "IL", name: "Irene Llansola Rico", role: "Delegada de Centro · FCS", bio: "Representa a los estudiantes de la Facultat de Ciències de la Salut." },
+    { initials: "YR", name: "Yolanda Roca Pyper", role: "Delegada de Centro · FCHS", bio: "Representa a los estudiantes de la Facultat de Ciències Humanes i Socials." },
+    { initials: "AB", name: "Alexandru Cristian Butaru", role: "Delegado de Centro · FCJE", bio: "Representa a los estudiantes de la Facultat de Ciències Jurídiques i Econòmiques." },
   ];
 
   const milestones = [
@@ -24,8 +29,11 @@ export default function QuienesSomosPage() {
     { year: t("page.about.timeline.5.year"), desc: t("page.about.timeline.5.desc") },
   ];
 
-  const associations = [
-    "UJI Motorsport", "Hackerspace", "AESCA", "ESN", "La Plantilla", "SAÓ", "@informerjaumei"
+  const delegados = [
+    { initials: "SP", name: "Sergi Pérez Serra", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+    { initials: "IL", name: "Irene Llansola Rico", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+    { initials: "YR", name: "Yolanda Roca Pyper", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
+    { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
   ];
 
   return (
@@ -67,21 +75,36 @@ export default function QuienesSomosPage() {
             <div className="accent-bar bg-primary mx-auto"></div>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, i) => (
+          {/* Featured: Cabeza de lista */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-primary text-primary-foreground p-10 rounded-xl shadow-lg text-center flex flex-col items-center mb-8"
+          >
+            <div className="w-28 h-28 rounded-full bg-white/20 text-white flex items-center justify-center text-3xl font-bold font-display tracking-widest mb-6 border-4 border-white/30">
+              PI
+            </div>
+            <h3 className="text-2xl font-black mb-1 text-white">Praise Ijeoma Iheanyi Anyanwu</h3>
+            <p className="text-sm font-bold uppercase tracking-widest text-white/80 mb-4">Cabeza de Lista · Candidata a Presidenta</p>
+            <p className="text-white/90 max-w-xl">Lidera la candidatura de Canvi 2026 con vocación de servicio y compromiso con toda la comunidad universitaria de la UJI.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {teamMembers.slice(1).map((member, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.07 }}
                 className="bg-card p-8 rounded-xl border border-border shadow-sm text-center flex flex-col items-center hover:border-primary/50 transition-colors"
               >
-                <div className="w-24 h-24 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold font-display tracking-widest mb-6">
+                <div className="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl font-bold font-display tracking-widest mb-5">
                   {member.initials}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-sm font-bold uppercase tracking-wider text-primary mb-4">{member.role}</p>
+                <h3 className="text-lg font-bold mb-1 leading-snug">{member.name}</h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">{member.role}</p>
                 <p className="text-muted-foreground text-sm">{member.bio}</p>
               </motion.div>
             ))}
@@ -123,30 +146,41 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Nuestras Asociaciones */}
+      {/* Delegados de Centro */}
       <section className="py-24 bg-muted border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-6"
           >
-            <h2 className="section-header text-secondary dark:text-foreground">{t("page.about.associations.title")}</h2>
-            <div className="accent-bar bg-primary mx-auto"></div>
+            <span className="section-title text-primary">Apoyo real</span>
+            <h2 className="section-header text-secondary dark:text-foreground">Los 4 delegados de centro de la UJI nos apoyan</h2>
+            <div className="accent-bar bg-primary mx-auto mb-8"></div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-14">
+              Los cuatro delegados de centro de la Universitat Jaume I — las personas elegidas por sus compañeros para representarlos en sus facultades — avalan el proyecto Canvi. Esto habla por sí solo.
+            </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {associations.map((assoc, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {delegados.map((del, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-background px-8 py-4 rounded-full border border-border shadow-sm text-foreground font-bold font-display uppercase tracking-wider hover:border-primary hover:text-primary transition-colors cursor-default"
+                transition={{ delay: i * 0.1 }}
+                className="bg-card border border-border border-t-4 border-t-primary rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all"
               >
-                {assoc}
+                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl font-bold font-display tracking-widest mb-4 mx-auto">
+                  {del.initials}
+                </div>
+                <div className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                  {del.faculty}
+                </div>
+                <h3 className="text-base font-bold mb-2 leading-snug">{del.name}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">{del.fullName}</p>
               </motion.div>
             ))}
           </div>
