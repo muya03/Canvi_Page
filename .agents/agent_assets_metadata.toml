@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Bi13TB5d8CMKiZJw2Pc0g"
+uri = "file://GUIA-EDICION.md"
+type = "text"
+title = "Guía de Edición y Uso — Web CANVI"
