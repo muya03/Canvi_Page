@@ -1,49 +1,48 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Values() {
+  const { t } = useLanguage();
+
   const values = [
     {
-      title: "Independencia",
-      desc: "Libres de partidos políticos. Nuestra única prioridad son los estudiantes de la UJI.",
-      color: "bg-purple-500"
+      title: t("values.1.title"),
+      desc: t("values.1.desc"),
     },
     {
-      title: "Experiencia",
-      desc: "Años de trabajo real en representaciones y asociaciones universitarias nos avalan.",
-      color: "bg-secondary"
+      title: t("values.2.title"),
+      desc: t("values.2.desc"),
     },
     {
-      title: "Realismo",
-      desc: "No prometemos imposibles. Proponemos soluciones viables basadas en necesidades reales.",
-      color: "bg-accent"
+      title: t("values.3.title"),
+      desc: t("values.3.desc"),
     },
     {
-      title: "Transparencia",
-      desc: "Cuentas claras, agenda pública y rendición de cuentas hacia los estudiantes.",
-      color: "bg-cyan-500"
+      title: t("values.4.title"),
+      desc: t("values.4.desc"),
     }
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-muted border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold">Nuestros Valores</h2>
+          <h2 className="section-header text-secondary dark:text-foreground">{t("values.title")}</h2>
+          <div className="accent-bar mx-auto bg-primary"></div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((val, i) => (
             <motion.div
               key={i}
-              className="glass-panel p-8 rounded-2xl relative overflow-hidden group"
+              className="bg-card p-8 rounded-xl border border-border border-t-4 border-t-primary shadow-sm h-full flex flex-col"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className={`absolute top-0 left-0 w-full h-1 ${val.color} transition-all duration-300 group-hover:h-2`}></div>
-              <h3 className="text-2xl font-bold mb-4 mt-2">{val.title}</h3>
-              <p className="text-muted-foreground">{val.desc}</p>
+              <h3 className="font-display font-bold text-2xl uppercase tracking-wider text-foreground mb-4">{val.title}</h3>
+              <p className="text-muted-foreground leading-relaxed flex-1">{val.desc}</p>
             </motion.div>
           ))}
         </div>
