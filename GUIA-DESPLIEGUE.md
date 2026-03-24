@@ -1,6 +1,6 @@
 # Guía de Despliegue — Web CANVI
 
-Guía paso a paso para ejecutar el proyecto en tu propio ordenador o publicarlo en un servidor de hosting. Cubre desde la descarga del código hasta tener el sitio completamente operativo.
+Guía paso a paso para ejecutar el proyecto en tu propio ordenador o publicarlo en IONOS. Cubre desde la descarga del código hasta tener el sitio completamente operativo.
 
 ---
 
@@ -14,10 +14,10 @@ Guía paso a paso para ejecutar el proyecto en tu propio ordenador o publicarlo 
 6. [Ejecutar en local (desarrollo)](#6-ejecutar-en-local-desarrollo)
 7. [Compilar para producción](#7-compilar-para-producción)
 8. [Base de datos (opcional / futuro)](#8-base-de-datos-opcional--futuro)
-9. [Desplegar en hosting gratuito — Opción A: Netlify (web)](#9-desplegar-en-hosting-gratuito--opción-a-netlify-web)
-10. [Desplegar en hosting gratuito — Opción B: Vercel (web)](#10-desplegar-en-hosting-gratuito--opción-b-vercel-web)
-11. [Desplegar la API — Railway o Render](#11-desplegar-la-api--railway-o-render)
-12. [Desplegar en Replit (recomendado)](#12-desplegar-en-replit-recomendado)
+9. [Desplegar en IONOS — Opción A: Subida por FTP (más sencilla)](#9-desplegar-en-ionos--opción-a-subida-por-ftp-más-sencilla)
+10. [Desplegar en IONOS — Opción B: Deploy Now con GitHub (recomendada)](#10-desplegar-en-ionos--opción-b-deploy-now-con-github-recomendada)
+11. [Desplegar la API en IONOS VPS](#11-desplegar-la-api-en-ionos-vps)
+12. [Dominio personalizado en IONOS](#12-dominio-personalizado-en-ionos)
 13. [Solución de problemas frecuentes](#13-solución-de-problemas-frecuentes)
 
 ---
@@ -56,7 +56,7 @@ Debe mostrar algo como `v20.x.x` o superior. Este proyecto fue creado con `v24.x
 
 ### pnpm (gestor de paquetes)
 
-pnpm es el gestor de paquetes que usa este proyecto (más rápido que npm).
+pnpm es el gestor de paquetes que usa este proyecto.
 
 ```bash
 npm install -g pnpm
@@ -70,9 +70,13 @@ pnpm --version
 
 Debe mostrar algo como `9.x.x` o superior.
 
-### Git (opcional pero recomendado)
+### FileZilla (para subir archivos por FTP a IONOS)
 
-Si quieres clonar el repositorio en lugar de descargar el zip:
+Si vas a usar la Opción A (FTP), descarga el cliente FTP gratuito:
+
+Descarga desde: https://filezilla-project.org/download.php?type=client
+
+### Git (solo para la Opción B con Deploy Now)
 
 Descarga desde: https://git-scm.com/downloads
 
@@ -93,9 +97,7 @@ Descarga desde: https://git-scm.com/downloads
 > - **Mac:** Entra en la carpeta, haz clic derecho y selecciona "Nueva terminal en la carpeta".
 > - **Linux:** Clic derecho → "Abrir terminal aquí".
 
-### Opción B: Clonar con Git
-
-Si tienes el repositorio en GitHub u otro servicio:
+### Opción B: Clonar con Git (si tienes el proyecto en GitHub)
 
 ```bash
 git clone https://github.com/tu-usuario/tu-repositorio.git
@@ -112,7 +114,7 @@ Desde la carpeta raíz del proyecto (donde está el archivo `package.json` princ
 pnpm install
 ```
 
-Este comando descarga e instala todos los paquetes necesarios para que funcione el proyecto. Puede tardar entre 1 y 3 minutos la primera vez.
+Este comando descarga e instala todos los paquetes necesarios. Puede tardar entre 1 y 3 minutos la primera vez.
 
 Al terminar verás algo como:
 
@@ -120,7 +122,7 @@ Al terminar verás algo como:
 Done in 45s
 ```
 
-> **Si aparece un error** que dice "Use pnpm instead", significa que intentaste usar `npm install` en lugar de `pnpm install`. Usa siempre `pnpm`.
+> **Si aparece un error** que dice "Use pnpm instead", significa que intentaste usar `npm install`. Usa siempre `pnpm`.
 
 ---
 
@@ -165,16 +167,11 @@ PORT=3001
 NODE_ENV=development
 ```
 
-| Variable | Qué hace | Valor para local |
-|---|---|---|
-| `PORT` | Puerto en el que arranca la API | `3001` (diferente al de la web) |
-| `NODE_ENV` | Modo de ejecución | `development` en local |
-
 > **Nota sobre la base de datos:** Si en el futuro activas la base de datos, también necesitarás añadir `DATABASE_URL=postgresql://...` al `.env` de la API. Por ahora no hace falta.
 
 ### Seguridad importante
 
-Los archivos `.env` **nunca deben subirse a GitHub** ni compartirse públicamente, ya que pueden contener contraseñas o claves privadas. El proyecto ya tiene un archivo `.gitignore` que los excluye automáticamente.
+Los archivos `.env` **nunca deben subirse a GitHub** ni compartirse públicamente. El proyecto ya tiene un archivo `.gitignore` que los excluye automáticamente.
 
 ---
 
@@ -190,14 +187,14 @@ Desde la carpeta raíz del proyecto:
 pnpm --filter @workspace/canvi-web run dev
 ```
 
-O desde dentro de la carpeta `artifacts/canvi-web/`:
+O desde dentro de la carpeta de la web:
 
 ```bash
 cd artifacts/canvi-web
 pnpm run dev
 ```
 
-La terminal mostrará algo como:
+La terminal mostrará:
 
 ```
   VITE v6.x.x  ready in 800ms
@@ -214,9 +211,7 @@ Abre el navegador en `http://localhost:3000` para ver la web.
 pnpm --filter @workspace/api-server run dev
 ```
 
-La API estará disponible en `http://localhost:3001`.
-
-Para comprobar que funciona:
+La API estará disponible en `http://localhost:3001`. Para comprobar que funciona:
 
 ```bash
 curl http://localhost:3001/api/healthz
@@ -226,7 +221,7 @@ Debe responder: `{"status":"ok"}`
 
 ### Arrancar todo a la vez
 
-Para arrancar la web y la API simultáneamente, abre **dos terminales**:
+Abre **dos terminales**:
 
 - **Terminal 1:** `pnpm --filter @workspace/canvi-web run dev`
 - **Terminal 2:** `pnpm --filter @workspace/api-server run dev`
@@ -237,7 +232,7 @@ Para arrancar la web y la API simultáneamente, abre **dos terminales**:
 
 ## 7. Compilar para producción
 
-Antes de subir el proyecto a un hosting, necesitas compilarlo. Esto convierte el código fuente en archivos optimizados listos para el servidor.
+Antes de subir el proyecto a IONOS, necesitas compilarlo. Esto convierte el código fuente en archivos HTML, CSS y JavaScript optimizados listos para el servidor.
 
 ### Compilar la web
 
@@ -245,11 +240,27 @@ Antes de subir el proyecto a un hosting, necesitas compilarlo. Esto convierte el
 pnpm --filter @workspace/canvi-web run build
 ```
 
-Los archivos compilados se generan en: `artifacts/canvi-web/dist/public/`
+Los archivos compilados se generan en:
 
-Esta carpeta es todo lo que necesitas subir para publicar la web en un hosting estático.
+```
+artifacts/canvi-web/dist/public/
+```
 
-### Compilar la API
+Esta carpeta contiene todo lo que necesitas subir a IONOS. Su contenido será algo así:
+
+```
+dist/public/
+├── index.html
+├── assets/
+│   ├── index-XXXXXX.js
+│   └── index-XXXXXX.css
+├── canvi-logo-completo.png
+├── canvi-logo-parcial.png
+└── images/
+    └── ...
+```
+
+### Compilar la API (solo si la vas a usar)
 
 ```bash
 pnpm --filter @workspace/api-server run build
@@ -257,263 +268,430 @@ pnpm --filter @workspace/api-server run build
 
 Los archivos compilados se generan en: `artifacts/api-server/dist/`
 
-### Compilar todo el proyecto a la vez
-
-```bash
-pnpm run build
-```
-
 ---
 
 ## 8. Base de datos (opcional / futuro)
 
-**Actualmente el sitio web no requiere base de datos.** Todo el contenido (textos, noticias, propuestas) está en el archivo de traducciones.
+**Actualmente el sitio web no requiere base de datos.** Todo el contenido está en el archivo de traducciones.
 
-La infraestructura de base de datos está preparada para cuando se necesite (por ejemplo, para gestionar el formulario de contacto, una lista de votantes, etc.). Cuando llegue ese momento:
+La infraestructura de base de datos está preparada para cuando se necesite. Cuando llegue ese momento:
 
-### Qué sistema usa
+El proyecto usa **PostgreSQL** y **Drizzle ORM**. IONOS ofrece bases de datos **MySQL** en sus planes de alojamiento compartido. Para usar PostgreSQL con IONOS necesitarías un **VPS** o una base de datos externa como [Neon](https://neon.tech) (plan gratuito).
 
-El proyecto usa **PostgreSQL** como base de datos y **Drizzle ORM** como herramienta para gestionar las tablas.
+Pasos cuando sea necesario:
 
-### Cómo activar la base de datos (cuando sea necesario)
-
-1. **Crea una base de datos PostgreSQL.** Opciones gratuitas:
-   - [Neon](https://neon.tech) — recomendado, plan gratuito generoso
-   - [Supabase](https://supabase.com) — plan gratuito disponible
-   - [Railway](https://railway.app) — incluye PostgreSQL
-
-2. **Obtén la URL de conexión.** Tendrá este formato:
-   ```
-   postgresql://usuario:contraseña@host:5432/nombre_base_de_datos
-   ```
-
-3. **Añade la variable al `.env` de la API:**
-   ```env
-   DATABASE_URL=postgresql://usuario:contraseña@host:5432/nombre_base_de_datos
-   ```
-
-4. **Crea las tablas** ejecutando el esquema:
-   ```bash
-   pnpm --filter @workspace/db run push
-   ```
-
-5. **Reinicia el servidor API.**
-
-### Cómo añadir una tabla nueva
-
-Los esquemas de tablas se definen en `lib/db/src/schema/`. Cada archivo define una tabla. Ver comentarios en `lib/db/src/index.ts` para el patrón a seguir.
+1. Crea una base de datos PostgreSQL (en Neon, Supabase, o en el VPS de IONOS)
+2. Añade la variable al `.env` de la API: `DATABASE_URL=postgresql://usuario:contraseña@host:5432/nombre_db`
+3. Crea las tablas: `pnpm --filter @workspace/db run push`
+4. Reinicia el servidor API
 
 ---
 
-## 9. Desplegar en hosting gratuito — Opción A: Netlify (web)
+## 9. Desplegar en IONOS — Opción A: Subida por FTP (más sencilla)
 
-Netlify es ideal para publicar la web de forma gratuita y rápida. Solo sirve la parte frontend (la página que ve el usuario), no la API.
+Esta opción es la más directa. Compilas el proyecto en tu ordenador y subes los archivos resultantes al servidor de IONOS usando FTP.
 
-### Pasos
+### Qué necesitas
 
-1. **Crea una cuenta en** https://www.netlify.com (gratuita)
+- Una cuenta en IONOS con un plan de **alojamiento web** activo (Web Hosting Essential, Business, o superior)
+- FileZilla instalado en tu ordenador
+- Tus credenciales FTP de IONOS
 
-2. **Compila la web localmente:**
-   ```bash
-   pnpm --filter @workspace/canvi-web run build
-   ```
+### Paso 1: Obtener las credenciales FTP de IONOS
 
-3. **Sube la carpeta `dist/public/`** directamente a Netlify:
-   - Entra en tu panel de Netlify.
-   - Haz clic en **"Add new site"** → **"Deploy manually"**.
-   - Arrastra y suelta la carpeta `artifacts/canvi-web/dist/public/` en la zona de subida.
-   - Netlify asigna una URL automáticamente (por ejemplo `canvi-abc123.netlify.app`).
+1. Entra en tu **panel de control de IONOS**: https://www.ionos.es/login
+2. Ve a **"Alojamiento"** → selecciona tu contrato de alojamiento web
+3. En el menú lateral busca **"FTP y SSH"** o **"Acceso FTP"**
+4. Anota o copia:
+   - **Servidor FTP** (algo como `home123456789.1and1-data.host`)
+   - **Usuario FTP** (algo como `u123456789`)
+   - **Contraseña FTP** (la que tú hayas configurado; si no la recuerdas, puedes restablecerla aquí)
 
-4. **Configura un dominio personalizado** (opcional):
-   - En la configuración del sitio, ve a **"Domain management"**.
-   - Añade tu dominio (por ejemplo `canvi-uji.es`).
-   - Sigue las instrucciones para actualizar los DNS en tu proveedor de dominio.
+### Paso 2: Preparar el archivo `.htaccess`
 
-### Variables de entorno en Netlify
+La web CANVI es una **Single Page Application (SPA)**: todas las URLs de la web (como `/propuestas`, `/quienes-somos`) las gestiona el propio JavaScript del navegador, no el servidor. Para que IONOS las sirva correctamente y no devuelva un error 404, necesitas un archivo de configuración especial.
 
-Si en el futuro la web necesita variables de entorno:
-- Ve a tu sitio en Netlify → **Site configuration** → **Environment variables**
-- Añade las variables que necesites
+Crea un archivo llamado `.htaccess` en la carpeta `artifacts/canvi-web/dist/public/` con este contenido exacto:
 
-### Despliegue automático desde GitHub (recomendado)
-
-Si el proyecto está en GitHub, Netlify puede redesplegar automáticamente cada vez que hagas cambios:
-
-1. En Netlify: **"Add new site"** → **"Import an existing project"** → Conecta tu cuenta de GitHub
-2. Selecciona el repositorio
-3. Configura:
-   - **Base directory:** `artifacts/canvi-web`
-   - **Build command:** `pnpm install && pnpm run build`
-   - **Publish directory:** `artifacts/canvi-web/dist/public`
-4. Añade las variables de entorno:
-   - `PORT` = `3000`
-   - `BASE_PATH` = `/`
-
----
-
-## 10. Desplegar en hosting gratuito — Opción B: Vercel (web)
-
-Vercel es otra opción muy popular para publicar webs. Plan gratuito muy generoso.
-
-### Pasos
-
-1. **Crea una cuenta en** https://vercel.com (gratuita)
-
-2. **Instala la herramienta de Vercel en tu ordenador:**
-   ```bash
-   npm install -g vercel
-   ```
-
-3. **Desde la carpeta `artifacts/canvi-web/`, ejecuta:**
-   ```bash
-   cd artifacts/canvi-web
-   vercel
-   ```
-
-4. **Responde las preguntas:**
-   - "Set up and deploy?" → `Y`
-   - "Which scope?" → Selecciona tu cuenta personal
-   - "Link to existing project?" → `N`
-   - "What's your project's name?" → `canvi-web` (o el nombre que prefieras)
-   - "In which directory is your code located?" → `.` (punto, la carpeta actual)
-   - "Want to modify these settings?" → `N`
-
-5. Vercel compila y publica automáticamente. Te dará una URL como `canvi-web.vercel.app`.
-
-### Variables de entorno en Vercel
-
-```bash
-vercel env add PORT
-# Introduce el valor: 3000
-
-vercel env add BASE_PATH
-# Introduce el valor: /
+```apache
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
 ```
 
-O ve al panel web de Vercel → tu proyecto → **Settings** → **Environment Variables**.
+Este archivo le dice al servidor de IONOS que, cuando alguien acceda a cualquier ruta (por ejemplo `/propuestas`), devuelva siempre el `index.html` y deje que la web lo gestione internamente.
+
+> **Importante:** Si el archivo `.htaccess` no está, las páginas internas darán error 404 cuando el usuario las visite directamente o recargue la página.
+
+### Paso 3: Compilar el proyecto
+
+En tu terminal, desde la raíz del proyecto:
+
+```bash
+pnpm --filter @workspace/canvi-web run build
+```
+
+Verifica que se ha creado la carpeta `artifacts/canvi-web/dist/public/` y que dentro está el `index.html`.
+
+### Paso 4: Conectar FileZilla a IONOS
+
+1. Abre FileZilla
+2. En la barra superior introduce los datos de conexión:
+   - **Servidor:** el servidor FTP de IONOS (por ejemplo `home123456789.1and1-data.host`)
+   - **Nombre de usuario:** tu usuario FTP de IONOS
+   - **Contraseña:** tu contraseña FTP
+   - **Puerto:** `21`
+3. Haz clic en **"Conexión rápida"**
+4. Si aparece un aviso sobre el certificado SSL, acepta el certificado del servidor IONOS
+
+Una vez conectado, verás dos paneles:
+- **Panel izquierdo:** tu ordenador
+- **Panel derecho:** el servidor de IONOS
+
+### Paso 5: Navegar a la carpeta correcta en IONOS
+
+En el **panel derecho** (servidor de IONOS), busca la carpeta raíz web. Dependiendo de tu configuración puede llamarse:
+
+- `public_html`
+- `htdocs`
+- `/`  (la raíz directamente)
+
+Entra en esa carpeta. Es donde deben estar los archivos de la web.
+
+> **Si ya tienes una web antigua**, haz una copia de seguridad antes de continuar. Puedes simplemente seleccionar todos los archivos del servidor y descargarlos al ordenador antes de subir los nuevos.
+
+### Paso 6: Subir los archivos compilados
+
+1. En el **panel izquierdo** (tu ordenador), navega hasta `artifacts/canvi-web/dist/public/`
+2. Selecciona **todos los archivos y carpetas** dentro de `public/` (usa `Ctrl+A` o `Cmd+A`)
+3. Haz clic derecho → **"Subir"**
+4. FileZilla subirá todos los archivos al servidor
+
+La subida puede tardar entre 1 y 5 minutos dependiendo de tu conexión.
+
+### Paso 7: Verificar que funciona
+
+Abre tu navegador y entra en tu dominio de IONOS. La web de CANVI debería cargarse correctamente.
+
+Prueba también navegar a una página interna como `/propuestas` y recarga la página — si el `.htaccess` está bien configurado, no debe dar error 404.
+
+### Actualizar la web en el futuro
+
+Cada vez que hagas cambios y quieras publicarlos:
+
+1. Compila de nuevo: `pnpm --filter @workspace/canvi-web run build`
+2. Abre FileZilla y conéctate a IONOS
+3. Sube solo los archivos que hayan cambiado, o sube todos de nuevo para mayor seguridad
 
 ---
 
-## 11. Desplegar la API — Railway o Render
+## 10. Desplegar en IONOS — Opción B: Deploy Now con GitHub (recomendada)
 
-La API (backend) necesita un servidor que ejecute Node.js. Netlify y Vercel no son adecuados para esto; usa una de estas opciones:
+**IONOS Deploy Now** es una herramienta que conecta tu repositorio de GitHub con IONOS y despliega automáticamente cada vez que subes cambios. Es la opción más cómoda a largo plazo.
 
-### Opción A: Railway
+> Esta opción requiere tener el código en un repositorio de GitHub y tener un plan de IONOS compatible con Deploy Now.
 
-1. **Crea una cuenta en** https://railway.app (plan gratuito disponible)
-2. En el panel, haz clic en **"New Project"** → **"Deploy from GitHub repo"**
-3. Selecciona tu repositorio
-4. Configura el servicio:
-   - **Root Directory:** `artifacts/api-server`
-   - **Build Command:** `pnpm install && pnpm run build`
-   - **Start Command:** `pnpm run start`
-5. Añade las variables de entorno en **Variables**:
-   - `PORT` = `3000` (Railway asigna el puerto automáticamente con `$PORT`)
-   - `NODE_ENV` = `production`
-6. Railway asigna una URL pública a tu API.
+### Paso 1: Subir el proyecto a GitHub
 
-### Opción B: Render
+Si el código aún no está en GitHub:
 
-1. **Crea una cuenta en** https://render.com (plan gratuito disponible)
-2. **"New"** → **"Web Service"**
-3. Conecta tu repositorio de GitHub
-4. Configura:
-   - **Name:** `canvi-api`
-   - **Root Directory:** `artifacts/api-server`
-   - **Environment:** `Node`
-   - **Build Command:** `pnpm install && pnpm run build`
-   - **Start Command:** `pnpm run start`
-5. Añade las variables de entorno:
-   - `NODE_ENV` = `production`
-6. Render asigna una URL como `canvi-api.onrender.com`
+1. Crea una cuenta en https://github.com si no tienes una
+2. Crea un repositorio nuevo (puede ser privado): **"New repository"** → nómbralo `canvi-web`
+3. Desde la carpeta del proyecto en tu terminal:
 
-> **Nota:** En el plan gratuito de Render, el servidor se "duerme" tras 15 minutos de inactividad y tarda unos segundos en responder la primera petición. Para un sitio activo, considera el plan de pago (7$/mes) o Railway.
+```bash
+git init
+git add .
+git commit -m "Primera versión"
+git remote add origin https://github.com/tu-usuario/canvi-web.git
+git push -u origin main
+```
+
+### Paso 2: Crear el archivo `.htaccess` de redirección SPA
+
+Antes de configurar Deploy Now, crea el archivo `.htaccess` en la carpeta pública de la web para que el enrutamiento funcione correctamente:
+
+Crea el archivo `artifacts/canvi-web/public/.htaccess` con este contenido:
+
+```apache
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
+```
+
+Guárdalo en `artifacts/canvi-web/public/` (no en `dist/`) para que Vite lo incluya automáticamente en cada compilación dentro de `dist/public/`.
+
+Después, súbelo al repositorio:
+
+```bash
+git add artifacts/canvi-web/public/.htaccess
+git commit -m "Añadir .htaccess para SPA routing"
+git push
+```
+
+### Paso 3: Configurar IONOS Deploy Now
+
+1. Entra en tu panel de IONOS: https://www.ionos.es/login
+2. Busca **"Deploy Now"** en los productos (o ve a https://www.ionos.es/hosting/deploy-now)
+3. Haz clic en **"Configurar proyecto"** o **"Conectar repositorio"**
+4. Autoriza a IONOS a acceder a tu cuenta de GitHub
+5. Selecciona el repositorio `canvi-web`
+
+### Paso 4: Configurar el flujo de build
+
+IONOS te pedirá los datos de compilación. Introduce estos valores exactos:
+
+| Campo | Valor |
+|---|---|
+| **Runtime** | `Node.js` |
+| **Node version** | `20` (o `18` si no está disponible el 20) |
+| **Package manager** | `npm` *(IONOS no soporta pnpm nativamente, ver nota abajo)* |
+| **Build command** | `npm install -g pnpm && pnpm install && pnpm --filter @workspace/canvi-web run build` |
+| **Publish directory** | `artifacts/canvi-web/dist/public` |
+
+> **Nota sobre pnpm en Deploy Now:** IONOS Deploy Now usa npm por defecto. El comando de build instala primero pnpm globalmente y luego lo usa para compilar el proyecto. Esto es normal y funciona correctamente.
+
+### Paso 5: Configurar las variables de entorno en Deploy Now
+
+En la sección de variables de entorno de Deploy Now, añade:
+
+| Variable | Valor |
+|---|---|
+| `PORT` | `3000` |
+| `BASE_PATH` | `/` |
+| `NODE_ENV` | `production` |
+
+### Paso 6: Lanzar el despliegue
+
+Haz clic en **"Desplegar"** o **"Deploy"**. IONOS clona tu repositorio, ejecuta el build y publica los archivos automáticamente.
+
+El primer despliegue puede tardar entre 3 y 8 minutos. Cuando termine, te dará una URL de previsualización.
+
+### Paso 7: Actualizaciones automáticas
+
+A partir de ahora, **cada vez que hagas un `git push` a la rama `main`**, IONOS detecta el cambio, compila de nuevo y actualiza la web automáticamente sin que tengas que hacer nada más.
+
+El flujo de trabajo es:
+
+```
+Editas el código → git push → IONOS compila automáticamente → Web actualizada
+```
 
 ---
 
-## 12. Desplegar en Replit (recomendado)
+## 11. Desplegar la API en IONOS VPS
 
-Esta es la opción más sencilla si ya tienes el proyecto en Replit, y es la que se recomienda para CANVI. Replit gestiona automáticamente los servidores, puertos y variables de entorno.
+El alojamiento web estándar de IONOS **no puede ejecutar servidores Node.js** de forma permanente. Para la API necesitas un **VPS (Servidor Virtual Privado)** de IONOS.
 
-### Pasos para publicar en Replit
+> **Nota:** Actualmente la API solo tiene el endpoint de salud (`/api/healthz`) y la web funciona perfectamente sin ella. Solo necesitas este paso si quieres activar el formulario de contacto u otras funciones de backend.
 
-1. Con el proyecto abierto en Replit, haz clic en el botón **"Deploy"** (en la esquina superior derecha).
-2. Replit ofrece varias modalidades de despliegue:
-   - **Autoscale** (recomendado): se adapta automáticamente al tráfico
-   - **Reserved VM**: servidor dedicado con recursos fijos
-3. Selecciona **"Autoscale"** para empezar.
-4. Revisa la configuración:
-   - El **run command** ya está configurado correctamente
-   - Las **variables de entorno** se copian automáticamente del entorno de desarrollo
-5. Haz clic en **"Deploy"**.
-6. En unos minutos el sitio estará disponible en una URL del tipo `canvi-web.replit.app`
+### Contratar un VPS en IONOS
 
-### Dominio personalizado en Replit
+1. Ve a https://www.ionos.es/servidores/vps
+2. El plan **VPS S** (el más básico, desde ~2€/mes) es suficiente para empezar
+3. Selecciona **Ubuntu 22.04** como sistema operativo al contratar
 
-Si tienes un dominio propio (por ejemplo `canvi-uji.es`):
-1. Ve a la configuración del despliegue en Replit
-2. Añade tu dominio en **"Custom domain"**
-3. En tu proveedor de dominio (GoDaddy, Namecheap, etc.), configura un registro CNAME apuntando a la URL que te indique Replit
+### Configurar el VPS
 
-### Actualizar el sitio desplegado
+Una vez contratado, IONOS te dará la **IP del servidor** y las credenciales de acceso SSH. Conéctate desde tu terminal:
 
-Cada vez que hagas cambios en el código y quieras actualizarlos en producción:
-1. Guarda los cambios en el editor
-2. Haz clic en **"Redeploy"** en la sección de despliegue
+```bash
+ssh root@TU_IP_DEL_VPS
+```
+
+Introduce la contraseña que te proporcionó IONOS.
+
+### Instalar Node.js en el VPS
+
+```bash
+# Actualizar el sistema
+apt update && apt upgrade -y
+
+# Instalar Node.js 20
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt install -y nodejs
+
+# Verificar instalación
+node --version   # debe mostrar v20.x.x
+
+# Instalar pnpm
+npm install -g pnpm
+
+# Instalar PM2 (gestiona el servidor para que no se detenga)
+npm install -g pm2
+```
+
+### Subir el código de la API al VPS
+
+**Opción A — desde GitHub:**
+
+```bash
+git clone https://github.com/tu-usuario/canvi-web.git
+cd canvi-web
+pnpm install
+pnpm --filter @workspace/api-server run build
+```
+
+**Opción B — subir los archivos compilados con SCP:**
+
+En tu ordenador (no en el VPS), compila primero:
+
+```bash
+pnpm --filter @workspace/api-server run build
+```
+
+Luego sube la carpeta compilada al VPS:
+
+```bash
+scp -r artifacts/api-server/dist/ root@TU_IP_DEL_VPS:/var/www/canvi-api/
+```
+
+### Configurar las variables de entorno en el VPS
+
+En el VPS, crea el archivo de entorno:
+
+```bash
+nano /var/www/canvi-api/.env
+```
+
+Con este contenido:
+
+```env
+PORT=3001
+NODE_ENV=production
+```
+
+Guarda con `Ctrl+X`, luego `Y`, luego `Enter`.
+
+### Arrancar la API con PM2
+
+```bash
+cd /var/www/canvi-api
+pm2 start dist/index.mjs --name "canvi-api"
+pm2 save
+pm2 startup
+```
+
+El último comando (`pm2 startup`) genera un comando que debes ejecutar para que la API arranque automáticamente si el servidor se reinicia. Cópialo y ejecútalo.
+
+### Comprobar que la API funciona
+
+```bash
+curl http://localhost:3001/api/healthz
+```
+
+Debe responder: `{"status":"ok"}`
+
+Desde el exterior (en tu navegador o terminal local):
+
+```bash
+curl http://TU_IP_DEL_VPS:3001/api/healthz
+```
+
+### Comandos útiles de PM2
+
+| Qué hacer | Comando |
+|---|---|
+| Ver estado de la API | `pm2 status` |
+| Ver logs en tiempo real | `pm2 logs canvi-api` |
+| Reiniciar la API | `pm2 restart canvi-api` |
+| Detener la API | `pm2 stop canvi-api` |
+| Actualizar tras nuevos cambios | `pm2 restart canvi-api` |
+
+---
+
+## 12. Dominio personalizado en IONOS
+
+Si tienes o quieres contratar un dominio propio (por ejemplo `canvi-uji.es`) para que la web no use la URL genérica de IONOS:
+
+### Si el dominio ya está en IONOS
+
+IONOS asigna el dominio al alojamiento automáticamente al contratarlo en el mismo paquete. En el panel de control:
+
+1. Ve a **"Dominios y SSL"**
+2. Selecciona tu dominio
+3. En **"Destino"**, asegúrate de que apunta a tu paquete de alojamiento web
+
+### Si el dominio está en otro proveedor
+
+Necesitas actualizar los **servidores DNS** del dominio para que apunten a IONOS. En el panel de tu proveedor de dominio actual:
+
+1. Cambia los **Name Servers** (servidores de nombres) a los de IONOS:
+   ```
+   ns1066.ui-dns.com
+   ns1066.ui-dns.biz
+   ns1066.ui-dns.de
+   ns1066.ui-dns.org
+   ```
+   (Los servidores exactos los encontrarás en tu panel de IONOS → Dominios → DNS)
+
+2. El cambio de DNS puede tardar hasta **24-48 horas** en propagarse por todo internet, aunque normalmente se aplica en menos de 2 horas.
+
+### Activar SSL/HTTPS gratuito
+
+IONOS incluye un certificado SSL gratuito con todos sus planes de alojamiento. Para activarlo:
+
+1. Panel de IONOS → **"Dominios y SSL"**
+2. Selecciona tu dominio → **"SSL"**
+3. Haz clic en **"Activar SSL"** → selecciona el certificado gratuito (Let's Encrypt o el propio de IONOS)
+4. Espera entre 5 y 30 minutos a que se active
+
+Una vez activo, la web será accesible por `https://tu-dominio.es` con el candado verde de seguridad.
 
 ---
 
 ## 13. Solución de problemas frecuentes
 
-### La web no arranca: "PORT environment variable is required"
+### La web da error 404 al entrar en páginas como /propuestas
 
-El archivo `.env` no existe o no tiene la variable `PORT`.
+El archivo `.htaccess` no está en el servidor o está mal configurado.
 
-**Solución:** Crea el archivo `artifacts/canvi-web/.env` con el contenido:
+**Solución:** Asegúrate de que el archivo `.htaccess` existe en la carpeta raíz del servidor (la misma donde está `index.html`) y contiene exactamente:
+
+```apache
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
+```
+
+En FileZilla, los archivos que empiezan por `.` (punto) pueden estar ocultos. Para verlos: **Servidor** → **Forzar mostrar archivos ocultos**.
+
+### La web no arranca en local: "PORT environment variable is required"
+
+**Solución:** Crea el archivo `artifacts/canvi-web/.env` con:
 ```env
 PORT=3000
 BASE_PATH=/
 ```
 
-### La web no arranca: "BASE_PATH environment variable is required"
-
-Mismo problema que el anterior, falta `BASE_PATH`.
+### La web no arranca en local: "BASE_PATH environment variable is required"
 
 **Solución:** Asegúrate de que `.env` tiene la línea `BASE_PATH=/`
 
 ### Error: "Cannot find module" o "Module not found"
-
-Las dependencias no están instaladas correctamente.
 
 **Solución:** Ejecuta desde la raíz del proyecto:
 ```bash
 pnpm install
 ```
 
-### La página carga pero está en blanco
+### La página carga en blanco
 
-El `BASE_PATH` no está configurado correctamente.
+El `BASE_PATH` puede no estar configurado correctamente en producción.
 
-**Solución:** En local usa `BASE_PATH=/`. En hosting, si la web está en una subcarpeta, ajusta el valor (por ejemplo `BASE_PATH=/canvi/`).
+**Solución:** En IONOS, si la web está en la raíz del dominio, `BASE_PATH` debe ser `/`. Si está en una subcarpeta (por ejemplo `tudominio.es/canvi/`), debe ser `/canvi/`.
 
-### La API no responde
+### FileZilla no puede conectar a IONOS
 
-Comprueba que el servidor está corriendo:
-```bash
-curl http://localhost:3001/api/healthz
-```
-
-Si da error de conexión, el servidor no está arrancado. Ejecútalo con:
-```bash
-pnpm --filter @workspace/api-server run dev
-```
-
-### Error de permisos con pnpm en Windows
-
-Abre el terminal como **Administrador** (clic derecho → "Ejecutar como administrador") y ejecuta:
-```bash
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
+- Comprueba que el servidor FTP, usuario y contraseña son correctos
+- Asegúrate de que el **Puerto es 21**
+- En FileZilla: **Archivo** → **Gestor de sitios** → prueba con **"FTP explícito sobre TLS"** en el tipo de cifrado
 
 ### El build falla con errores de TypeScript
 
@@ -522,25 +700,41 @@ Comprueba los errores con:
 pnpm --filter @workspace/canvi-web run typecheck
 ```
 
-Lee el error, normalmente indica el archivo y la línea del problema.
+El error indicará el archivo y la línea exacta del problema.
+
+### Error de permisos con pnpm en Windows
+
+Abre el terminal como **Administrador** y ejecuta:
+```bash
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
 ---
 
 ## Resumen rápido
 
-| Quiero... | Comando |
+### Comandos esenciales
+
+| Qué quiero hacer | Comando |
 |---|---|
-| Instalar todo | `pnpm install` (desde la raíz) |
+| Instalar dependencias | `pnpm install` (desde la raíz) |
 | Ver la web en local | `pnpm --filter @workspace/canvi-web run dev` |
 | Ver la API en local | `pnpm --filter @workspace/api-server run dev` |
-| Compilar la web | `pnpm --filter @workspace/canvi-web run build` |
-| Compilar la API | `pnpm --filter @workspace/api-server run build` |
-| Compilar todo | `pnpm run build` (desde la raíz) |
+| Compilar la web para subir | `pnpm --filter @workspace/canvi-web run build` |
+| Compilar la API para subir | `pnpm --filter @workspace/api-server run build` |
 
-| Hosting recomendado | Para qué | Plan gratuito |
-|---|---|---|
-| Replit Deploy | Web + API todo junto | Sí |
-| Netlify | Solo la web | Sí |
-| Vercel | Solo la web | Sí |
-| Railway | API / backend | Sí (limitado) |
-| Render | API / backend | Sí (con limitaciones) |
+### Flujo de publicación en IONOS (FTP)
+
+```
+1. Editar código  →  2. pnpm build  →  3. Abrir FileZilla  →  4. Subir dist/public/  →  ¡Listo!
+```
+
+### Flujo de publicación en IONOS (Deploy Now)
+
+```
+1. Editar código  →  2. git push  →  IONOS compila y publica solo  →  ¡Listo!
+```
+
+### Archivos que se suben a IONOS
+
+Solo se sube el contenido de `artifacts/canvi-web/dist/public/` — **nunca** el código fuente completo. El código fuente es solo para desarrollo local.
