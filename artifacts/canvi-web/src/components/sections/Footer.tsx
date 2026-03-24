@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react";
+import { Link } from "wouter";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
@@ -23,10 +24,12 @@ export function Footer() {
           <div className="flex flex-col items-start md:items-center">
             <h4 className="font-display font-bold text-lg uppercase tracking-wider mb-6 text-white">Links</h4>
             <div className="flex flex-col space-y-3 text-secondary-foreground/80 font-medium">
-              <a href="#inicio" className="hover:text-primary transition-colors">{t("nav.inicio")}</a>
-              <a href="#nosotros" className="hover:text-primary transition-colors">{t("nav.nosotros")}</a>
-              <a href="#propuestas" className="hover:text-primary transition-colors">{t("nav.propuestas")}</a>
-              <a href="#logros" className="hover:text-primary transition-colors">{t("nav.logros")}</a>
+              <Link href="/" className="hover:text-primary transition-colors">{t("nav.inicio")}</Link>
+              <Link href="/quienes-somos" className="hover:text-primary transition-colors">{t("nav.nosotros")}</Link>
+              <Link href="/propuestas" className="hover:text-primary transition-colors">{t("nav.propuestas")}</Link>
+              <Link href="/logros" className="hover:text-primary transition-colors">{t("nav.logros")}</Link>
+              <Link href="/noticias" className="hover:text-primary transition-colors">{t("nav.noticias")}</Link>
+              <Link href="/unete" className="hover:text-primary transition-colors">{t("nav.unete")}</Link>
             </div>
           </div>
 

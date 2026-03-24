@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useLanguage } from "@/context/LanguageContext";
@@ -47,8 +48,8 @@ export function News() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Button variant="outline" className="font-display font-bold uppercase tracking-wider rounded-sm text-foreground border-border hover:bg-muted">
-              {t("news.viewAll")}
+            <Button variant="outline" className="font-display font-bold uppercase tracking-wider rounded-sm text-foreground border-border hover:bg-muted" asChild>
+              <Link href="/noticias">{t("news.viewAll")} →</Link>
             </Button>
           </motion.div>
         </div>

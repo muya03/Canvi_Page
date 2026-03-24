@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Achievements() {
@@ -27,9 +29,13 @@ export function Achievements() {
             <h2 className="section-title text-primary">{t("achievements.badge")}</h2>
             <h3 className="section-header text-secondary dark:text-foreground">{t("achievements.title")}</h3>
             <div className="accent-bar bg-primary"></div>
-            <p className="text-lg text-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed mb-8">
               {t("achievements.desc")}
             </p>
+
+            <Button className="font-display font-bold uppercase tracking-wider rounded-sm" asChild>
+              <Link href="/logros">Ver todos los logros →</Link>
+            </Button>
           </motion.div>
 
           <motion.div 

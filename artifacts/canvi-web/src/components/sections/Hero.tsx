@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
   const { t } = useLanguage();
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-20 pb-16 bg-background overflow-hidden">
@@ -36,18 +33,18 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Button 
                 size="lg" 
-                onClick={() => scrollTo("propuestas")} 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-display font-bold uppercase tracking-wider rounded-sm px-8 py-6 h-auto text-base"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-display font-bold uppercase tracking-wider rounded-sm px-8 py-6 h-auto text-base w-full"
+                asChild
               >
-                {t("hero.cta.primary")}
+                <Link href="/propuestas">{t("hero.cta.primary")}</Link>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                onClick={() => scrollTo("nosotros")} 
-                className="border-secondary text-secondary hover:bg-secondary hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground font-display font-bold uppercase tracking-wider rounded-sm px-8 py-6 h-auto text-base transition-colors"
+                className="border-secondary text-secondary hover:bg-secondary hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground font-display font-bold uppercase tracking-wider rounded-sm px-8 py-6 h-auto text-base transition-colors w-full"
+                asChild
               >
-                {t("hero.cta.secondary")}
+                <Link href="/quienes-somos">{t("hero.cta.secondary")}</Link>
               </Button>
             </div>
           </motion.div>

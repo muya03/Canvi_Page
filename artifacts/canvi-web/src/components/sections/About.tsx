@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function About() {
@@ -34,7 +36,7 @@ export function About() {
               {t("about.p2")}
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-4 mb-10">
               {points.map((point, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
@@ -42,6 +44,10 @@ export function About() {
                 </div>
               ))}
             </div>
+
+            <Button className="font-display font-bold uppercase tracking-wider rounded-sm text-primary-foreground" asChild>
+              <Link href="/quienes-somos">Conócenos mejor →</Link>
+            </Button>
           </motion.div>
 
           <motion.div

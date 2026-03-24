@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function JoinUs() {
   const { t } = useLanguage();
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
@@ -35,10 +32,10 @@ export function JoinUs() {
           </p>
           <Button 
             size="lg" 
-            onClick={() => scrollTo("contacto")}
             className="bg-white text-primary hover:bg-white/90 font-display font-bold uppercase tracking-wider rounded-sm px-10 py-7 h-auto text-lg shadow-xl"
+            asChild
           >
-            {t("join.button")}
+            <Link href="/unete">{t("join.button")}</Link>
           </Button>
         </motion.div>
       </div>

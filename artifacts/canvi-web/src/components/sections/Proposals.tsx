@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { 
   FileText, Users, Heart, Bus 
 } from "lucide-react";
@@ -65,7 +67,7 @@ export function Proposals() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {proposals.map((category, idx) => {
             const Icon = category.icon;
             const items = Array.isArray(category.items) ? category.items : [];
@@ -102,6 +104,12 @@ export function Proposals() {
               </motion.div>
             )
           })}
+        </div>
+
+        <div className="text-center">
+          <Button size="lg" className="font-display font-bold uppercase tracking-wider rounded-sm px-8" asChild>
+            <Link href="/propuestas">Ver todas las propuestas →</Link>
+          </Button>
         </div>
       </div>
     </section>

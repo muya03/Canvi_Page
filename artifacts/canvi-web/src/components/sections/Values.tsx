@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Values() {
@@ -31,7 +33,7 @@ export function Values() {
           <div className="accent-bar mx-auto bg-primary"></div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {values.map((val, i) => (
             <motion.div
               key={i}
@@ -45,6 +47,12 @@ export function Values() {
               <p className="text-muted-foreground leading-relaxed flex-1">{val.desc}</p>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button size="lg" className="font-display font-bold uppercase tracking-wider rounded-sm px-8" asChild>
+            <Link href="/valores">Nuestra filosofía completa →</Link>
+          </Button>
         </div>
       </div>
     </section>
