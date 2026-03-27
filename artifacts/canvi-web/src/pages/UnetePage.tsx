@@ -41,33 +41,28 @@ export default function UnetePage() {
   const selectedRole = watch("role");
 
   const onSubmit = async (data: JoinInput) => {
-    const roleLabels: Record<string, string> = {
-      delegado: "Candidato/a a delegado/a de clase",
-      consell: "Miembro del Consell de l'Estudiantat",
-      eventos: "Organización de eventos",
-      comunicacion: "Comunicación y redes sociales",
-      otro: "Otro",
-    };
+    try {
+      const response = await fetch("/api/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const subject = encodeURIComponent(
-      `Solicitud de unión a Canvi — ${data.name}`
-    );
-    const body = encodeURIComponent(
-      `Nueva solicitud de unión recibida desde la web de Canvi.\n\n` +
-      `Nombre: ${data.name}\n` +
-      `Email: ${data.email}\n` +
-      `Área de interés: ${roleLabels[data.role] ?? data.role}\n\n` +
-      `Mensaje:\n${data.message}`
-    );
+      if (!response.ok) throw new Error("Error en el servidor");
 
-    window.location.href = `mailto:info@canvi.es?subject=${subject}&body=${body}`;
-
-    toast({
-      title: t("contact.success"),
-      description: "Nos pondremos en contacto contigo pronto.",
-    });
-    reset();
-    setValue("role", "");
+      toast({
+        title: t("contact.success"),
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      reset();
+      setValue("role", "");
+    } catch {
+      toast({
+        title: t("contact.error"),
+        description: t("contact.error.desc"),
+        variant: "destructive",
+      });
+    }
   };
 
   return (
