@@ -41,10 +41,27 @@ export default function UnetePage() {
   const selectedRole = watch("role");
 
   const onSubmit = async (data: JoinInput) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Join request:", data);
-    
+    const roleLabels: Record<string, string> = {
+      delegado: "Candidato/a a delegado/a de clase",
+      consell: "Miembro del Consell de l'Estudiantat",
+      eventos: "Organización de eventos",
+      comunicacion: "Comunicación y redes sociales",
+      otro: "Otro",
+    };
+
+    const subject = encodeURIComponent(
+      `Solicitud de unión a Canvi — ${data.name}`
+    );
+    const body = encodeURIComponent(
+      `Nueva solicitud de unión recibida desde la web de Canvi.\n\n` +
+      `Nombre: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `Área de interés: ${roleLabels[data.role] ?? data.role}\n\n` +
+      `Mensaje:\n${data.message}`
+    );
+
+    window.location.href = `mailto:info@canvi.es?subject=${subject}&body=${body}`;
+
     toast({
       title: t("contact.success"),
       description: "Nos pondremos en contacto contigo pronto.",
