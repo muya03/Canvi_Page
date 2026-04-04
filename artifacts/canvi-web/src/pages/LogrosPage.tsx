@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-import { Trophy, BookOpen, Users, Heart, Star } from "lucide-react";
+import { Trophy, BookOpen, Users, Heart, Star, FileText, Building2, Globe, CalendarDays } from "lucide-react";
 
 const categories = [
   {
@@ -103,12 +103,12 @@ export default function LogrosPage() {
       {/* Estadísticas */}
       <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: Trophy, value: "30+", label: "Logros conseguidos" },
-              { icon: BookOpen, value: "15", label: "Mejoras normativas" },
-              { icon: Users, value: "1", label: "Legislatura 2024–2026" },
-              { icon: Star, value: "4", label: "Delegaciones de centro" },
+              { icon: FileText, value: "14", label: t("page.achievements.stat.normativas") },
+              { icon: Building2, value: "34+", label: t("page.achievements.stat.comisiones") },
+              { icon: Globe, value: "4", label: t("page.achievements.stat.creup") },
+              { icon: Trophy, value: "30+", label: t("page.achievements.stat.logros") },
             ].map(({ icon: Icon, value, label }, i) => (
               <motion.div
                 key={i}
@@ -120,7 +120,70 @@ export default function LogrosPage() {
               >
                 <Icon size={36} className="mx-auto mb-4 opacity-80" strokeWidth={1.5} />
                 <span className="block text-5xl font-black font-display tracking-tighter mb-1">{value}</span>
-                <span className="text-sm font-bold uppercase tracking-wider opacity-85">{label}</span>
+                <span className="text-sm font-bold uppercase tracking-wider opacity-85 leading-tight block">{label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Presencia institucional */}
+      <section className="py-20 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-black font-display text-white mb-3">
+              {t("page.achievements.presence.title")}
+            </h2>
+            <p className="text-white/75 text-lg max-w-2xl mx-auto">
+              {t("page.achievements.presence.desc")}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                icon: FileText,
+                titleKey: "page.achievements.presence.1.title",
+                descKey: "page.achievements.presence.1.desc",
+              },
+              {
+                icon: Building2,
+                titleKey: "page.achievements.presence.2.title",
+                descKey: "page.achievements.presence.2.desc",
+              },
+              {
+                icon: Globe,
+                titleKey: "page.achievements.presence.3.title",
+                descKey: "page.achievements.presence.3.desc",
+              },
+              {
+                icon: CalendarDays,
+                titleKey: "page.achievements.presence.4.title",
+                descKey: "page.achievements.presence.4.desc",
+              },
+            ].map(({ icon: Icon, titleKey, descKey }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="bg-white/10 border border-white/15 rounded-xl p-6 flex gap-4"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+                  <Icon size={22} className="text-white" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-white font-black font-display text-lg leading-tight mb-1">
+                    {t(titleKey)}
+                  </h3>
+                  <p className="text-white/75 text-sm leading-relaxed">{t(descKey)}</p>
+                </div>
               </motion.div>
             ))}
           </div>
