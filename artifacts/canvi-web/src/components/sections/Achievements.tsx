@@ -12,7 +12,8 @@ export function Achievements() {
     t("achievements.2"),
     t("achievements.3"),
     t("achievements.4"),
-    t("achievements.5")
+    t("achievements.5"),
+    t("achievements.6"),
   ];
 
   return (
