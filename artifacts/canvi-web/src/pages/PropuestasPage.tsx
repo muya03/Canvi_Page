@@ -1,8 +1,32 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { PageLayout } from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-import { FileText, Users, Heart, Bus, Scale, Globe, UserCheck, Monitor } from "lucide-react";
+import { FileText, Users, Heart, Bus, Scale, Globe, UserCheck, Monitor, BookOpen, ArrowRight, Home, Download } from "lucide-react";
+
+const base = import.meta.env.BASE_URL;
+
+const plans = [
+  {
+    slug: "vivienda",
+    title: "Plan de Vivienda Estudiantil",
+    titleVal: "Pla d'Habitatge Estudiantil",
+    date: "Abril 2026",
+    pages: 14,
+    icon: Home,
+    summary: "Análisis de la crisis habitacional en Castellón y propuestas concretas para garantizar el derecho a un techo digno: regulación del mercado, nueva Oficina de Vivienda, modelo cooperativo, Pisos Solidaris y hoja de ruta institucional en 3 fases.",
+    summaryVal: "Anàlisi de la crisi habitacional a Castelló i propostes concretes per garantir el dret a un sostre digne: regulació del mercat, nova Oficina d'Habitatge, model cooperatiu, Pisos Solidaris i full de ruta institucional en 3 fases.",
+    pdf: `${base}planes-vivienda.pdf`,
+    tags: ["Vivienda", "Mercado Alquiler", "Cooperativa", "Bienestar"],
+    stats: [
+      { value: "+18,82%", label: "Subida de precios en el Raval 2024–2026" },
+      { value: "14.000", label: "Estudiantes afectados en la UJI" },
+      { value: "3 Fases", label: "Hoja de ruta del CEUJI" },
+    ],
+  },
+];
 
 export default function PropuestasPage() {
   const { t } = useLanguage();
@@ -208,6 +232,102 @@ export default function PropuestasPage() {
             )
           })}
           
+        </div>
+      </section>
+
+      {/* Plans d'Execució */}
+      <section className="py-24 bg-secondary">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <BookOpen size={28} className="text-primary" />
+              <span className="section-title text-primary">Documents tècnics</span>
+            </div>
+            <h2 className="section-header text-white">Plans d'Execució</h2>
+            <div className="accent-bar bg-primary mx-auto mb-6"></div>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto">
+              Més que promeses: plans detallats, avalats per dades, amb mesures concretes i una hoja de ruta clar. Açò és el que significa governar el CEUJI amb rigor.
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {plans.map((plan, pi) => {
+              const Icon = plan.icon;
+              return (
+                <motion.div
+                  key={pi}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: pi * 0.1 }}
+                  className="bg-white/10 border border-white/15 rounded-2xl overflow-hidden hover:bg-white/15 transition-colors group"
+                >
+                  <div className="p-8 md:p-10">
+                    <div className="flex flex-col md:flex-row gap-8">
+                      {/* Left */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                            <Icon size={20} />
+                          </div>
+                          <span className="text-white/60 text-xs font-bold uppercase tracking-widest">{plan.date} · {plan.pages} pàgines</span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-black font-display text-white mb-4 leading-tight group-hover:text-primary transition-colors">
+                          {plan.title}
+                        </h3>
+                        <p className="text-white/75 leading-relaxed mb-5">{plan.summary}</p>
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {plan.tags.map((tag, ti) => (
+                            <span key={ti} className="text-xs font-bold uppercase tracking-wider text-white/60 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                          <Button asChild className="bg-primary hover:bg-primary/90 text-white font-display font-bold uppercase tracking-wider rounded-sm px-6 py-4 h-auto">
+                            <Link href={`/planes/${plan.slug}`}>
+                              <ArrowRight size={16} className="mr-2" />
+                              Llegir el pla
+                            </Link>
+                          </Button>
+                          <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 font-display font-bold uppercase tracking-wider rounded-sm px-6 py-4 h-auto">
+                            <a href={plan.pdf} target="_blank" rel="noopener noreferrer" download>
+                              <Download size={16} className="mr-2" />
+                              Descargar PDF
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Stats */}
+                      <div className="flex flex-row md:flex-col gap-3 md:w-48 shrink-0 justify-start md:justify-center">
+                        {plan.stats.map((stat, si2) => (
+                          <div key={si2} className="bg-white/10 rounded-xl p-4 text-center border border-white/10 flex-1 md:flex-none">
+                            <span className="block text-2xl font-black text-primary font-display leading-none mb-1">{stat.value}</span>
+                            <span className="text-white/60 text-xs leading-snug">{stat.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-white/40 text-sm mt-10"
+          >
+            Més plans en elaboració · Contacta'ns si vols contribuir: info@canvi.es
+          </motion.p>
         </div>
       </section>
 
