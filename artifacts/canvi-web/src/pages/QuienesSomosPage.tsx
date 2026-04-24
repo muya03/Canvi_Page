@@ -4,46 +4,49 @@ import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
+const base = import.meta.env.BASE_URL;
+const img = (file: string) => `${base}images/team/${file}`;
+
 const titulars = [
-  { initials: "PI", name: "Praise Ijeoma Iheanyi Anyanwu", role: "Cabeza de Lista", featured: true },
-  { initials: "AL", name: "Álex López Damas", role: "Membre del Consell" },
+  { initials: "PI", name: "Praise Ijeoma Iheanyi Anyanwu", role: "Cabeza de Lista", photo: img("praise.jpg"), featured: true },
+  { initials: "AL", name: "Álex López Damas", role: "Membre del Consell", photo: img("alex_l.jpg") },
   { initials: "SP", name: "Sergi Pérez Serra", role: "Delegat ESTCE" },
   { initials: "YR", name: "Yolanda Rico Pyper", role: "Delegada FCHS" },
   { initials: "AB", name: "Alexandru Cristian Butaru", role: "Delegat FCJE" },
   { initials: "IL", name: "Irene Llansola Rico", role: "Delegada FCS" },
-  { initials: "OE", name: "Otman El Kakmaoui Sakif", role: "Membre del Consell" },
+  { initials: "OE", name: "Otman El Kakmaoui Sakif", role: "Membre del Consell", photo: img("otman.jpg") },
   { initials: "KA", name: "Karen Abrego Rosas", role: "Membre del Consell" },
   { initials: "DB", name: "Dhirar Abdelkader Bahloul Rouab", role: "Membre del Consell" },
-  { initials: "SC", name: "Silvia Climent Perelló", role: "Membre del Consell" },
+  { initials: "SC", name: "Silvia Climent Perelló", role: "Membre del Consell", photo: img("silvia.jpg") },
   { initials: "PV", name: "Pau Valcárcel Redón", role: "Membre del Consell" },
   { initials: "LG", name: "Lydia Gómez López", role: "Membre del Consell" },
   { initials: "ÓS", name: "Óscar Sáez Martín", role: "Membre del Consell" },
   { initials: "MP", name: "Marina Peiro Comba", role: "Membre del Consell" },
   { initials: "FS", name: "Favio Scarfo Manzaneda", role: "Membre del Consell" },
-  { initials: "VN", name: "Valeria Nuño Gil", role: "Membre del Consell" },
+  { initials: "VN", name: "Valeria Nuño Gil", role: "Membre del Consell", photo: img("valeria.jpg") },
   { initials: "VC", name: "Valentín Carpentier Anglés", role: "Membre del Consell" },
-  { initials: "NG", name: "Nagore García Miravet", role: "Membre del Consell" },
+  { initials: "NG", name: "Nagore García Miravet", role: "Membre del Consell", photo: img("nagore.jpg") },
   { initials: "GV", name: "Germán Valderrama García", role: "Membre del Consell" },
   { initials: "YE", name: "Yousra Reklaoui El Hadri", role: "Membre del Consell" },
   { initials: "JC", name: "Joan Cerezuela Soto", role: "Membre del Consell" },
-  { initials: "EA", name: "Esther María Alarcón García", role: "Membre del Consell" },
+  { initials: "EA", name: "Esther María Alarcón García", role: "Membre del Consell", photo: img("esther.jpg") },
   { initials: "GN", name: "Gabriel Guitérrez Navarro", role: "Membre del Consell" },
   { initials: "AG", name: "Aday Guerra Suárez", role: "Membre del Consell" },
-  { initials: "EM", name: "Eduardo Martín Fayos", role: "Membre del Consell" },
+  { initials: "EM", name: "Eduardo Martín Fayos", role: "Membre del Consell", photo: img("eduardo.jpg") },
   { initials: "AM", name: "Alejandro Morera Canet", role: "Membre del Consell" },
   { initials: "MA", name: "Mohamed Al Howaidi Nasralla", role: "Membre del Consell" },
   { initials: "SB", name: "Santiago Bernabé Hernández", role: "Membre del Consell" },
 ];
 
 const suplents = [
-  { initials: "MC", name: "María Inés Ciotea Marginean" },
+  { initials: "MC", name: "María Inés Ciotea Marginean", photo: img("maria_ines.jpg") },
   { initials: "AMG", name: "Álex Macián García" },
   { initials: "IM", name: "Iris Moreno Barco" },
   { initials: "MM", name: "Manuel Morrondo Bielsa" },
   { initials: "CZ", name: "Christopher Ziolkowski Gilgado" },
   { initials: "CM", name: "Claudia Martín Fernández" },
   { initials: "AIM", name: "Álvaro Ionut Moraru" },
-  { initials: "IC", name: "Ilyas Chtatou" },
+  { initials: "IC", name: "Ilyas Chtatou", photo: img("ilyas.png") },
 ];
 
 const delegados = [
@@ -52,6 +55,28 @@ const delegados = [
   { initials: "YR", name: "Yolanda Rico Pyper", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
   { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
 ];
+
+function Avatar({ photo, initials, size = "md" }: { photo?: string; initials: string; size?: "sm" | "md" | "lg" }) {
+  const sizes = {
+    sm: "w-10 h-10 text-xs",
+    md: "w-14 h-14 text-sm",
+    lg: "w-28 h-28 text-3xl",
+  };
+  if (photo) {
+    return (
+      <img
+        src={photo}
+        alt={initials}
+        className={`${sizes[size]} rounded-full object-cover object-top border-2 border-border shrink-0`}
+      />
+    );
+  }
+  return (
+    <div className={`${sizes[size]} rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold font-display tracking-widest shrink-0`}>
+      {initials}
+    </div>
+  );
+}
 
 export default function QuienesSomosPage() {
   const { t } = useLanguage();
@@ -112,8 +137,12 @@ export default function QuienesSomosPage() {
             viewport={{ once: true }}
             className="bg-primary text-primary-foreground p-10 rounded-xl shadow-lg text-center flex flex-col items-center mb-8"
           >
-            <div className="w-28 h-28 rounded-full bg-white/20 text-white flex items-center justify-center text-3xl font-bold font-display tracking-widest mb-6 border-4 border-white/30">
-              PI
+            <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white/30 mb-6">
+              <img
+                src={img("praise.jpg")}
+                alt="Praise Ijeoma Iheanyi Anyanwu"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <h3 className="text-2xl font-black mb-1 text-white">Praise Ijeoma Iheanyi Anyanwu</h3>
             <p className="text-sm font-bold uppercase tracking-widest text-white/80 mb-4">Cabeza de Lista · Candidata a Presidenta</p>
@@ -131,10 +160,8 @@ export default function QuienesSomosPage() {
                 transition={{ delay: i * 0.04 }}
                 className="bg-card p-5 rounded-xl border border-border shadow-sm text-center flex flex-col items-center hover:border-primary/50 transition-colors"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-bold font-display tracking-widest mb-3">
-                  {member.initials}
-                </div>
-                <h3 className="text-sm font-bold leading-snug mb-1">{member.name}</h3>
+                <Avatar photo={member.photo} initials={member.initials} size="md" />
+                <h3 className="text-sm font-bold leading-snug mb-1 mt-3">{member.name}</h3>
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary/80">{member.role}</p>
               </motion.div>
             ))}
@@ -149,9 +176,7 @@ export default function QuienesSomosPage() {
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px bg-border flex-1"></div>
-              <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground px-3">
-                Suplents
-              </span>
+              <span className="text-sm font-bold uppercase tracking-wider text-muted-foreground px-3">Suplents</span>
               <div className="h-px bg-border flex-1"></div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -164,9 +189,17 @@ export default function QuienesSomosPage() {
                   transition={{ delay: i * 0.05 }}
                   className="bg-card/60 p-4 rounded-lg border border-border text-center flex flex-col items-center"
                 >
-                  <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs font-bold font-display mb-2">
-                    {member.initials}
-                  </div>
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-10 h-10 rounded-full object-cover object-top border border-border mb-2"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs font-bold font-display mb-2">
+                      {member.initials}
+                    </div>
+                  )}
                   <h3 className="text-xs font-semibold leading-snug text-foreground">{member.name}</h3>
                   <p className="text-xs text-muted-foreground mt-0.5">Suplent</p>
                 </motion.div>
