@@ -31,7 +31,7 @@ router.post("/join", async (req, res) => {
     const from = fromEmail ?? "onboarding@resend.dev";
     const roleLabel = roleLabels[role] ?? role;
 
-    await client.emails.send({
+    const { data, error } = await client.emails.send({
       from,
       to: ["info@canvi.es"],
       replyTo: email,
@@ -66,7 +66,13 @@ router.post("/join", async (req, res) => {
       `,
     });
 
-    logger.info({ name, email, role }, "Join request email sent");
+    if (error) {
+      logger.error({ error, name, email, role }, "Resend rejected email send");
+      res.status(500).json({ success: false, error: "Error al enviar el mensaje: " + error.message });
+      return;
+    }
+
+    logger.info({ name, email, role, emailId: data?.id }, "Join request email sent");
     res.json({ success: true });
   } catch (err) {
     logger.error({ err }, "Failed to send join request email");
