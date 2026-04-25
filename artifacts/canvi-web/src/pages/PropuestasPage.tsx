@@ -88,7 +88,6 @@ export default function PropuestasPage() {
         { title: "Normativa de paro académico", desc: "Regular el derecho de huelga estudiantil conforme a la LOSU." },
         { title: "Normativa de graduación", desc: "Eliminar las irregularidades del modelo actual de ceremonias de graduación." },
         { title: "Conciliación laboral y de representación", desc: "Garantizar que participar en órganos estudiantiles no suponga pérdida académica." },
-        { title: "Reducir créditos mínimos", desc: "Revisar el mínimo de créditos exigido para superar asignaturas." },
         { title: "Software y libros gratuitos", desc: "Prohibir la obligatoriedad de compra de material; la universidad debe proveer acceso a todos los recursos necesarios." },
         { title: "Identificación física", desc: "Petición de un método físico de identificación universitaria (carnet)." },
       ]
@@ -99,7 +98,6 @@ export default function PropuestasPage() {
       desc: t("page.proposals.cat6.desc"),
       proposals: [
         { title: "Exámenes en valenciano y castellano", desc: "Garantizar siempre copias en ambas lenguas oficiales, incluyendo exámenes tipo test." },
-        { title: "Protocolo ERASMUS", desc: "Adaptar los sistemas de evaluación para facilitar la integración de los estudiantes de intercambio." },
         { title: "Centro examinador multilingüe", desc: "Ampliar las acreditaciones de idiomas disponibles en la UJI más allá del inglés." },
       ]
     },
