@@ -10,30 +10,30 @@ const img = (file: string) => `${base}images/team/${file}`;
 const titulars = [
   { initials: "PI", name: "Praise Ijeoma Iheanyi Anyanwu", role: "Cabeza de Lista", photo: img("praise.jpg"), featured: true },
   { initials: "AL", name: "Álex López Damas", role: "Membre del Consell", photo: img("alex_l.jpg") },
-  { initials: "SP", name: "Sergi Pérez Serra", role: "Delegat ESTCE" },
-  { initials: "YR", name: "Yolanda Rico Pyper", role: "Delegada FCHS" },
-  { initials: "AB", name: "Alexandru Cristian Butaru", role: "Delegat FCJE" },
-  { initials: "IL", name: "Irene Llansola Rico", role: "Delegada FCS" },
+  { initials: "SP", name: "Sergi Pérez Serra", role: "Membre del Consell" },
+  { initials: "YR", name: "Yolanda Rico Pyper", role: "Membre del Consell" },
+  { initials: "AB", name: "Alexandru Cristian Butaru", role: "Membre del Consell" },
+  { initials: "IL", name: "Irene Llansola Rico", role: "Membre del Consell" },
   { initials: "OE", name: "Otman El Kakmaoui Sakif", role: "Membre del Consell", photo: img("otman.jpg") },
   { initials: "KA", name: "Karen Abrego Rosas", role: "Membre del Consell" },
   { initials: "DB", name: "Dhirar Abdelkader Bahloul Rouab", role: "Membre del Consell" },
-  { initials: "SC", name: "Silvia Climent Perelló", role: "Membre del Consell", photo: img("silvia.jpg") },
+  { initials: "SC", name: "Silvia Climent Perelló", role: "Representant FCJE", photo: img("silvia.jpg") },
   { initials: "PV", name: "Pau Valcárcel Redón", role: "Membre del Consell" },
-  { initials: "LG", name: "Lydia Gómez López", role: "Membre del Consell" },
+  { initials: "LG", name: "Lydia Gómez López", role: "Representant FCS" },
   { initials: "ÓS", name: "Óscar Sáez Martín", role: "Membre del Consell" },
-  { initials: "MP", name: "Marina Peiro Comba", role: "Membre del Consell" },
-  { initials: "FS", name: "Favio Scarfo Manzaneda", role: "Membre del Consell" },
-  { initials: "VN", name: "Valeria Nuño Gil", role: "Membre del Consell", photo: img("valeria.jpg") },
-  { initials: "VC", name: "Valentín Carpentier Anglés", role: "Membre del Consell" },
-  { initials: "NG", name: "Nagore García Miravet", role: "Membre del Consell", photo: img("nagore.jpg") },
-  { initials: "GV", name: "Germán Valderrama García", role: "Membre del Consell" },
-  { initials: "YE", name: "Yousra Reklaoui El Hadri", role: "Membre del Consell" },
-  { initials: "JC", name: "Joan Cerezuela Soto", role: "Membre del Consell" },
-  { initials: "EA", name: "Esther María Alarcón García", role: "Membre del Consell", photo: img("esther.jpg") },
-  { initials: "GN", name: "Gabriel Guitérrez Navarro", role: "Membre del Consell" },
-  { initials: "AG", name: "Aday Guerra Suárez", role: "Membre del Consell" },
-  { initials: "EM", name: "Eduardo Martín Fayos", role: "Membre del Consell", photo: img("eduardo.jpg") },
-  { initials: "AM", name: "Alejandro Morera Canet", role: "Membre del Consell" },
+  { initials: "MP", name: "Marina Peiro Comba", role: "Representant FCJE" },
+  { initials: "FS", name: "Favio Scarfo Manzaneda", role: "Representant FCS" },
+  { initials: "VN", name: "Valeria Nuño Gil", role: "Representant ESTCE", photo: img("valeria.jpg") },
+  { initials: "VC", name: "Valentín Carpentier Anglés", role: "Representant FCJE" },
+  { initials: "NG", name: "Nagore García Miravet", role: "Representant ESTCE", photo: img("nagore.jpg") },
+  { initials: "GV", name: "Germán Valderrama García", role: "Representant FCJE" },
+  { initials: "YE", name: "Yousra Reklaoui El Hadri", role: "Representant ESTCE" },
+  { initials: "JC", name: "Joan Cerezuela Soto", role: "Representant FCS" },
+  { initials: "EA", name: "Esther María Alarcón García", role: "Representant ESTCE", photo: img("esther.jpg") },
+  { initials: "GN", name: "Gabriel Guitérrez Navarro", role: "Representant FCS" },
+  { initials: "AG", name: "Aday Guerra Suárez", role: "Representant FCHS" },
+  { initials: "EM", name: "Eduardo Martín Fayos", role: "Representant ESTCE", photo: img("eduardo.jpg") },
+  { initials: "AM", name: "Alejandro Morera Canet", role: "Representant ESTCE" },
   { initials: "MA", name: "Mohamed Al Howaidi Nasralla", role: "Membre del Consell" },
   { initials: "SB", name: "Santiago Bernabé Hernández", role: "Membre del Consell" },
 ];
@@ -50,10 +50,21 @@ const suplents = [
 ];
 
 const delegados = [
-  { initials: "SP", name: "Sergi Pérez Serra", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "IL", name: "Irene Llansola Rico", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
-  { initials: "YR", name: "Yolanda Rico Pyper", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
-  { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "SC", name: "Silvia Climent Perelló", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "LG", name: "Lydia Gómez López", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "MP", name: "Marina Peiro Comba", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "FS", name: "Favio Scarfo Manzaneda", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "VN", name: "Valeria Nuño Gil", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "VC", name: "Valentín Carpentier Anglés", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "NG", name: "Nagore García Miravet", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "GV", name: "Germán Valderrama García", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "YE", name: "Yousra Reklaoui El Hadri", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "JC", name: "Joan Cerezuela Soto", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "EA", name: "Esther María Alarcón García", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "GN", name: "Gabriel Guitérrez Navarro", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "AG", name: "Aday Guerra Suárez", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
+  { initials: "EM", name: "Eduardo Martín Fayos", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "AM", name: "Alejandro Morera Canet", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
 ];
 
 function Avatar({ photo, initials, size = "md" }: { photo?: string; initials: string; size?: "sm" | "md" | "lg" }) {
@@ -219,10 +230,10 @@ export default function QuienesSomosPage() {
             className="text-center mb-6"
           >
             <span className="section-title text-primary">Apoyo real</span>
-            <h2 className="section-header text-secondary dark:text-foreground">Els 4 delegats de centre de l'UJI formen part de Canvi</h2>
+            <h2 className="section-header text-secondary dark:text-foreground">15 representants de l'UJI formen part de Canvi</h2>
             <div className="accent-bar bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-14">
-              Els quatre delegats de centre de la Universitat Jaume I — les persones elegides pels seus companys per a representar-los en les seues facultats — formen part del projecte Canvi. Açò parla per si sol.
+              Quinze representants estudiantils de les quatre facultats de la Universitat Jaume I han triat Canvi per a liderar la representació. Una força transversal que abasta tota la universitat.
             </p>
           </motion.div>
 
