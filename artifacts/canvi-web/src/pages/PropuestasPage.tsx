@@ -74,8 +74,8 @@ export default function PropuestasPage() {
       icon: Bus,
       desc: t("page.proposals.cat4.desc"),
       proposals: [
-        { title: "Transporte reforzado en horas punta", desc: "Presión sobre las administraciones para aumentar frecuencias de TRAM y autobús entre 8:00-9:00h." },
-        { title: "Bono gratuito para universitarios", desc: "Exigencia de un bono de transporte gratuito para todos los estudiantes matriculados en la UJI." },
+        { title: "Exigencia de líneas nocturnas de bus", desc: "Presión sobre el Ayuntamiento y la Generalitat para implantar líneas nocturnas de autobús que conecten el campus con los barrios universitarios, especialmente durante periodos de exámenes." },
+        { title: "Refuerzo de horario en horas punta", desc: "Aumento de la frecuencia de TRAM y autobús en las franjas de mayor demanda estudiantil (8:00–9:30h y 14:00–15:30h) para evitar saturación y retrasos." },
         { title: "Tolerancia en exámenes", desc: "Protocolo oficial de margen de tiempo para estudiantes afectados por retrasos de transporte en días de examen." },
       ]
     },
