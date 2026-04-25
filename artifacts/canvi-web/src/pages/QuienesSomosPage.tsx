@@ -50,21 +50,10 @@ const suplents = [
 ];
 
 const delegados = [
-  { initials: "SC", name: "Silvia Climent Perelló", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
-  { initials: "LG", name: "Lydia Gómez López", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
-  { initials: "MP", name: "Marina Peiro Comba", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
-  { initials: "FS", name: "Favio Scarfo Manzaneda", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
-  { initials: "VN", name: "Valeria Nuño Gil", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "VC", name: "Valentín Carpentier Anglés", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
-  { initials: "NG", name: "Nagore García Miravet", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "GV", name: "Germán Valderrama García", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
-  { initials: "YE", name: "Yousra Reklaoui El Hadri", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "JC", name: "Joan Cerezuela Soto", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
-  { initials: "EA", name: "Esther María Alarcón García", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "GN", name: "Gabriel Guitérrez Navarro", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
-  { initials: "AG", name: "Aday Guerra Suárez", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
-  { initials: "EM", name: "Eduardo Martín Fayos", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "AM", name: "Alejandro Morera Canet", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "SP", name: "Sergi Pérez Serra", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
+  { initials: "IL", name: "Irene Llansola Rico", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "YR", name: "Yolanda Rico Pyper", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
+  { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
 ];
 
 function Avatar({ photo, initials, size = "md" }: { photo?: string; initials: string; size?: "sm" | "md" | "lg" }) {
