@@ -225,8 +225,8 @@ export default function UnetePage() {
                         <SelectValue placeholder={t("page.join.form.role")} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="delegado">{t("page.join.form.role.opt1")}</SelectItem>
-                        <SelectItem value="consell">{t("page.join.form.role.opt2")}</SelectItem>
+                        <SelectItem value="simpatizante">{t("page.join.form.role.opt1")}</SelectItem>
+                        <SelectItem value="activo">{t("page.join.form.role.opt2")}</SelectItem>
                         <SelectItem value="eventos">{t("page.join.form.role.opt3")}</SelectItem>
                         <SelectItem value="comunicacion">{t("page.join.form.role.opt4")}</SelectItem>
                         <SelectItem value="otro">{t("page.join.form.role.opt5")}</SelectItem>

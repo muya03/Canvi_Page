@@ -5,8 +5,8 @@ import { logger } from "../lib/logger";
 const router = Router();
 
 const roleLabels: Record<string, string> = {
-  delegado: "Candidato/a a delegado/a de clase",
-  consell: "Miembro del Consell de l'Estudiantat",
+  simpatizante: "Simpatizante",
+  activo: "Miembro activo",
   eventos: "Organización de eventos",
   comunicacion: "Comunicación y redes sociales",
   otro: "Otro",
