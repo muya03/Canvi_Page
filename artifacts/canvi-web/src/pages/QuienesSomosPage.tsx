@@ -230,10 +230,10 @@ export default function QuienesSomosPage() {
             className="text-center mb-6"
           >
             <span className="section-title text-primary">Apoyo real</span>
-            <h2 className="section-header text-secondary dark:text-foreground">15 representants de l'UJI formen part de Canvi</h2>
+            <h2 className="section-header text-secondary dark:text-foreground">Els 4 delegats de centre de l'UJI formen part de Canvi</h2>
             <div className="accent-bar bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-14">
-              Quinze representants estudiantils de les quatre facultats de la Universitat Jaume I han triat Canvi per a liderar la representació. Una força transversal que abasta tota la universitat.
+              Els quatre delegats de centre de la Universitat Jaume I — les persones elegides pels seus companys per a representar-los en les seues facultats — formen part del projecte Canvi. Açò parla per si sol.
             </p>
           </motion.div>
 
