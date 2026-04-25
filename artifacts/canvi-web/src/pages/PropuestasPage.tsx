@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "wouter";
 import { PageLayout } from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -30,6 +31,18 @@ const plans = [
 
 export default function PropuestasPage() {
   const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState<number | null>(null);
+
+  const scrollTo = (index: number | null) => {
+    setActiveTab(index);
+    if (index === null) {
+      const el = document.getElementById("proposals-top");
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      const el = document.getElementById(`cat-${index}`);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const categories = [
     {
@@ -173,24 +186,31 @@ export default function PropuestasPage() {
         </div>
       </section>
 
-      {/* Filter Tabs (Static UI) */}
+      {/* Filter Tabs */}
       <section className="py-8 bg-muted border-y border-border sticky top-[72px] z-40 backdrop-blur-md bg-muted/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto pb-4 sm:pb-0 gap-3 hide-scrollbar">
-            <div className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-bold font-display uppercase tracking-wider text-sm whitespace-nowrap shrink-0">
+            <button
+              onClick={() => scrollTo(null)}
+              className={`px-5 py-2.5 rounded-full font-bold font-display uppercase tracking-wider text-sm whitespace-nowrap shrink-0 transition-colors cursor-pointer ${activeTab === null ? "bg-primary text-primary-foreground" : "bg-background text-foreground border border-border hover:border-primary"}`}
+            >
               Todas las áreas
-            </div>
+            </button>
             {categories.map((cat, i) => (
-              <div key={i} className="bg-background text-foreground hover:border-primary border border-border px-5 py-2.5 rounded-full font-bold font-display uppercase tracking-wider text-sm whitespace-nowrap shrink-0 cursor-pointer transition-colors">
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                className={`px-5 py-2.5 rounded-full font-bold font-display uppercase tracking-wider text-sm whitespace-nowrap shrink-0 transition-colors cursor-pointer ${activeTab === i ? "bg-primary text-primary-foreground" : "bg-background text-foreground border border-border hover:border-primary"}`}
+              >
                 {cat.title}
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
       {/* Proposals Listing */}
-      <section className="py-24 bg-background">
+      <section id="proposals-top" className="py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
           
           {categories.map((cat, i) => {
