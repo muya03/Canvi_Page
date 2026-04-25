@@ -38,7 +38,7 @@ export default function PropuestasPage() {
       desc: t("page.proposals.cat1.desc"),
       proposals: [
         { title: "Referéndum sobre calendarios de exámenes finales", desc: "Los estudiantes deben poder decidir sobre sus propios calendarios académicos mediante consulta directa." },
-        { title: "Cambiar normativa de evaluación", desc: "Negociaremos reformas para garantizar mayor flexibilidad y justicia en los criterios de evaluación." },
+        { title: "Cambiar normativa de evaluación", desc: "Seguir presionando para cambiar la normativa de evaluación y ganar más derechos para el estudiantado." },
         { title: "Aulas de estudio 24h/7 días", desc: "Apertura de un aulario de estudio fuera del horario de la biblioteca, incluyendo fines de semana y periodos no lectivos." },
         { title: "Calendario académico justo", desc: "Las clases del 2º cuatrimestre finalizarán el miércoles anterior al inicio de exámenes finales." },
         { title: "Tolerancia en retrasos de transporte", desc: "Protocolo claro para estudiantes afectados por retrasos del transporte público en días de examen." },
@@ -49,12 +49,13 @@ export default function PropuestasPage() {
       icon: Users,
       desc: t("page.proposals.cat2.desc"),
       proposals: [
-        { title: "Presupuesto propio para delegaciones", desc: "Financiación directa para que las delegaciones de centro puedan desarrollar actividades y representar mejor al estudiantado." },
-        { title: "Estructuración y activación del centro", desc: "Apoyo técnico y formativo para mejorar la organización de las delegaciones de cada facultad." },
+        { title: "Presupuesto propio para delegaciones", desc: "Dotar a las delegaciones de centro de un presupuesto propio para que puedan desarrollar actividades y representar mejor al estudiantado." },
+        { title: "Estructuración y activación de los centros", desc: "Ayudar a las delegaciones de centro a estructurarse y activar la vida participativa del centro con apoyo técnico y formativo." },
+        { title: "Manual de Iniciación a la UJI", desc: "Elaborar y distribuir una guía práctica para el estudiantado de primer año que facilite su integración en la vida universitaria." },
         { title: "Comisión de asociaciones", desc: "Creación de un órgano para que las asociaciones universitarias tengan voz en las decisiones del Consell." },
         { title: "Autonomía del Consejo", desc: "Blindar la independencia del Consell de l'Estudiantat frente a injerencias externas." },
-        { title: "Transparencia y rendición de cuentas", desc: "Portal de transparencia, agenda pública y boletín mensual con toda la actividad del Consell." },
-        { title: "Representación en sectoriales", desc: "Garantizar que la UJI tenga representación en todas las sectoriales estudiantiles." },
+        { title: "Transparencia y rendición de cuentas", desc: "Seguir reivindicando la transparencia y la rendición de cuentas al estudiantado mediante portal público, agenda y boletín mensual." },
+        { title: "Representación en sectoriales", desc: "Trabajar para que la UJI tenga una mejor y mayor representación estudiantil en las sectoriales a nivel nacional relativas a cada centro." },
       ]
     },
     {
@@ -62,11 +63,16 @@ export default function PropuestasPage() {
       icon: Heart,
       desc: t("page.proposals.cat3.desc"),
       proposals: [
-        { title: "Más psicólogos en el SAP", desc: "Aumentar el ratio de psicólogos/estudiante para reducir tiempos de espera en el Servicio de Atención Psicológica." },
-        { title: "Becas basadas en renta", desc: "Sistema de ayudas y becas basado en la necesidad económica real, no exclusivamente en el rendimiento académico." },
-        { title: "Semana de Bienvenida y Paellas", desc: "Mantener y mejorar los eventos de bienvenida. Recuperar las Paellas de septiembre además de las de febrero." },
-        { title: "Zonas de descanso", desc: "Ampliación de espacios de descanso y ocio en cada centro para favorecer la conciliación académica y personal." },
-        { title: "Menú subvencionado", desc: "Negociar con la administración un menú de comedor subvencionado para estudiantes, accesible para todo tipo de dietas." },
+        { title: "Más psicólogos en el SAP", desc: "Seguir incidiendo para aumentar el ratio de psicólogos por estudiante en el Servicio de Atención Psicológica y reducir los tiempos de espera." },
+        { title: "Becas y ayudas basadas en la necesidad", desc: "Pedir un sistema de ayudas y becas basado en la necesidad real y la renta, y no en el mérito académico, para que lleguen a quienes más las necesitan." },
+        { title: "Eventos históricos del CEUJI", desc: "Mantener y mejorar los eventos históricos del CEUJI como las Paellas, intentando mejorar la experiencia y ajustar precios mediante licitaciones públicas." },
+        { title: "Menú subvencionado (modelo UGR)", desc: "Pedir un menú de comedor subvencionado para reducir su precio para el estudiantado de la UJI, siguiendo el modelo de la Universidad de Granada." },
+        { title: "Zonas de ocio y descanso", desc: "Ampliar y mejorar las zonas de ocio en el campus, complementando los espacios existentes con más opciones recreativas y de descanso para el estudiantado." },
+        { title: "Zonas de desconexión digital", desc: "Crear espacios delimitados en el campus donde el estudiantado pueda desconectarse de pantallas y dispositivos para favorecer el descanso mental." },
+        { title: "Ampliación del horario de la sala de musculación", desc: "Ampliar el horario de la sala de musculación para mejorar la conciliación del estudiantado con sus rutinas de actividad física." },
+        { title: "Mejora de la infraestructura de la biblioteca", desc: "Pedir mejoras en las instalaciones de la biblioteca: electrificación de puestos, conectividad y condiciones generales de estudio." },
+        { title: "Modernización de la reprografía", desc: "Modernizar el servicio de reprografía de la UJI, potenciando el sistema de buzones para que el estudiantado pueda recoger pedidos por adelantado sin colas." },
+        { title: "Mejora de la Casa del Estudiante", desc: "Impulsar mejoras en la infraestructura y los servicios de la Casa del Estudiante para que sea un espacio más útil y acogedor para la comunidad universitaria." },
       ]
     },
     {
@@ -75,7 +81,7 @@ export default function PropuestasPage() {
       desc: t("page.proposals.cat4.desc"),
       proposals: [
         { title: "Exigencia de líneas nocturnas de bus", desc: "Presión sobre el Ayuntamiento y la Generalitat para implantar líneas nocturnas de autobús que conecten el campus con los barrios universitarios, especialmente durante periodos de exámenes." },
-        { title: "Refuerzo de horario en horas punta", desc: "Aumento de la frecuencia de TRAM y autobús en las franjas de mayor demanda estudiantil (8:00–9:30h y 14:00–15:30h) para evitar saturación y retrasos." },
+        { title: "Actuar ante las autoridades por el transporte en horas punta", desc: "Actuar ante las autoridades pertinentes para resolver el problema del transporte público en horas punta, exigiendo más frecuencia de TRAM y autobús en las franjas de mayor demanda estudiantil." },
         { title: "Tolerancia en exámenes", desc: "Protocolo oficial de margen de tiempo para estudiantes afectados por retrasos de transporte en días de examen." },
       ]
     },
@@ -84,12 +90,12 @@ export default function PropuestasPage() {
       icon: Scale,
       desc: t("page.proposals.cat5.desc"),
       proposals: [
-        { title: "Desarrollo normativo en evaluación", desc: "Colmar las lagunas normativas existentes en materia de evaluación continua y parciales." },
+        { title: "Normativa de graduación", desc: "Impulsar una normativa de graduación para corregir las irregularidades del modelo actual de ceremonias." },
+        { title: "Conciliación de la representación estudiantil", desc: "Garantizar la conciliación entre la representación estudiantil y la asistencia a órganos colegiados, evitando que la participación suponga una pérdida académica." },
+        { title: "Dispensa de asistencia por conciliación laboral", desc: "Asegurar la dispensa de asistencia a clase por motivos de conciliación laboral, de acuerdo con los estatutos de la universidad." },
+        { title: "Prohibición de compra obligatoria de libros y software", desc: "Prohibir la obligatoriedad de la compra de libros o software para el seguimiento de asignaturas, asegurando la disponibilidad de ejemplares suficientes para todo el estudiantado." },
+        { title: "Identificación física universitaria", desc: "Pedir un método físico de identificación en la UJI, como un carnet universitario, para facilitar la acreditación del estudiantado." },
         { title: "Normativa de paro académico", desc: "Regular el derecho de huelga estudiantil conforme a la LOSU." },
-        { title: "Normativa de graduación", desc: "Eliminar las irregularidades del modelo actual de ceremonias de graduación." },
-        { title: "Conciliación laboral y de representación", desc: "Garantizar que participar en órganos estudiantiles no suponga pérdida académica." },
-        { title: "Software y libros gratuitos", desc: "Prohibir la obligatoriedad de compra de material; la universidad debe proveer acceso a todos los recursos necesarios." },
-        { title: "Identificación física", desc: "Petición de un método físico de identificación universitaria (carnet)." },
       ]
     },
     {
@@ -99,6 +105,7 @@ export default function PropuestasPage() {
       proposals: [
         { title: "Exámenes en valenciano y castellano", desc: "Garantizar siempre copias en ambas lenguas oficiales, incluyendo exámenes tipo test." },
         { title: "Centro examinador multilingüe", desc: "Ampliar las acreditaciones de idiomas disponibles en la UJI más allá del inglés." },
+        { title: "Escucha activa a la comunidad internacional", desc: "Hablar con la comunidad de estudiantes extranjeros para conocer qué necesitaron al iniciar su carrera en la UJI y mejorar su acogida y acompañamiento." },
       ]
     },
     {
@@ -106,8 +113,9 @@ export default function PropuestasPage() {
       icon: UserCheck,
       desc: t("page.proposals.cat7.desc"),
       proposals: [
-        { title: "Plan anti-acoso", desc: "Protocolo integral de apoyo a víctimas de acoso por razón de sexo, raza, orientación sexual o diversidad funcional." },
-        { title: "Accesibilidad", desc: "Medidas físicas e infraestructurales para la plena inclusión de estudiantes con discapacidad." },
+        { title: "Campañas de concienciación contra el acoso", desc: "Promover campañas de concienciación sobre el bullying y fomentar los mecanismos que ya tiene la UJI para proteger al estudiantado." },
+        { title: "Inclusión de estudiantes con discapacidad", desc: "Mejorar la inclusión social del estudiantado con discapacidad, peticionando medidas físicas y de infraestructura para la adaptación de sus necesidades." },
+        { title: "Actividades de integración social", desc: "Organizar actividades y campañas para que los estudiantes que aún no tienen un vínculo social con sus compañeros puedan conocerse y crear nuevas amistades dentro de la universidad." },
       ]
     },
     {
@@ -115,8 +123,8 @@ export default function PropuestasPage() {
       icon: Monitor,
       desc: t("page.proposals.cat8.desc"),
       proposals: [
-        { title: "Licencias de software", desc: "La universidad debe proveer licencias de software específico necesario para los estudios." },
-        { title: "IA en el aula", desc: "Promover formación y uso responsable de la inteligencia artificial como herramienta de aprendizaje." },
+        { title: "Nuevas metodologías docentes e IA", desc: "Pedir el fomento de metodologías docentes innovadoras y la incorporación de nuevas tecnologías, como la inteligencia artificial, en los procesos de aprendizaje." },
+        { title: "Licencias de software", desc: "La universidad debe proveer licencias del software específico necesario para el seguimiento de los estudios." },
       ]
     }
   ];
