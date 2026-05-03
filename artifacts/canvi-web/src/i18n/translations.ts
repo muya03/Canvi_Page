@@ -23,7 +23,7 @@ export const translations = {
     "page.back-home": "Volver al inicio",
     
     "hero.badge": "Campaña 2026",
-    "hero.title1": "¡Necesitamos",
+    "hero.title1": "¡Seguimos con",
     "hero.title2": "el Cambio!",
     "hero.subtitle": "Estudiantes para estudiantes en la Universitat Jaume I. Somos el grupo de representación con un historial comprobado de resultados reales.",
     "hero.cta.primary": "Ver Propuestas 2026",
@@ -355,7 +355,7 @@ export const translations = {
     "page.back-home": "Tornar a l'inici",
     
     "hero.badge": "Campanya 2026",
-    "hero.title1": "Necessitem",
+    "hero.title1": "Seguim amb",
     "hero.title2": "el Canvi!",
     "hero.subtitle": "Estudiants per a estudiants a la Universitat Jaume I. Som el grup de representació amb un historial comprovat de resultats reals.",
     "hero.cta.primary": "Veure Propostes 2026",
