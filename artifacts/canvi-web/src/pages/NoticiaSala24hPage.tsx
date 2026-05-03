@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL;
 export default function NoticiaSala24hPage() {
   return (
     <PageLayout
-      title="CANVI inaugura la nueva sala de estudio 24 horas en la Casa de l'Estudiantat"
+      title="CANVI, desde el CEUJI, inaugura la nueva sala de estudio 24 horas en la Casa de l'Estudiantat"
       subtitle="150 plazas · Abierta todo el año · Campus Riu Sec, Castelló"
       badge="Notícia · 15 de Mayo, 2025"
     >
