@@ -82,7 +82,7 @@ export default function NoticiasPage() {
                     <img 
                       src={`${import.meta.env.BASE_URL}canvi-logo-parcial.png`} 
                       alt="Canvi"
-                      className="h-28 opacity-20 group-hover:scale-110 transition-transform duration-500 dark:invert"
+                      className="h-28 opacity-20 group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>

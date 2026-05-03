@@ -58,7 +58,7 @@ export function Hero() {
             <img 
               src={`${import.meta.env.BASE_URL}canvi-logo-parcial.png`}
               alt="Canvi C Logo" 
-              className="w-full max-w-[500px] h-auto object-contain dark:invert"
+              className="w-full max-w-[500px] h-auto object-contain"
             />
           </motion.div>
           

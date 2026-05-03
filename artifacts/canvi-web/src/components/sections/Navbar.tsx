@@ -44,7 +44,7 @@ export function Navbar() {
             <img
               src={`${import.meta.env.BASE_URL}canvi-logo-completo.png`}
               alt="Canvi Logo"
-              className="h-10 md:h-12 w-auto object-contain dark:invert"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </Link>
 

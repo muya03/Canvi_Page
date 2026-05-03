@@ -68,7 +68,7 @@ export function News() {
                   <img 
                     src={`${import.meta.env.BASE_URL}canvi-logo-parcial.png`} 
                     alt="Canvi"
-                    className="h-24 opacity-20 group-hover:scale-110 transition-transform duration-500 dark:invert"
+                    className="h-24 opacity-20 group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <CardHeader className="pb-3 pt-6">
