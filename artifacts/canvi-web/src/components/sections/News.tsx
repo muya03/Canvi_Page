@@ -18,16 +18,16 @@ export function News() {
       href: "/noticias/bono-alquiler-400k"
     },
     {
+      title: t("news.sala24h.title"),
+      date: t("news.sala24h.date"),
+      desc: t("news.sala24h.desc"),
+      photo: `${base}images/noticias/sala-24h-01.jpg`,
+      href: "/noticias/sala-estudio-24h"
+    },
+    {
       title: t("news.1.title"),
       date: t("news.1.date"),
       desc: t("news.1.desc"),
-      photo: null,
-      href: "/noticias"
-    },
-    {
-      title: t("news.2.title"),
-      date: t("news.2.date"),
-      desc: t("news.2.desc"),
       photo: null,
       href: "/noticias"
     }
