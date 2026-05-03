@@ -11,6 +11,7 @@ import ValoresPage from "@/pages/ValoresPage";
 import UnetePage from "@/pages/UnetePage";
 import ContactoPage from "@/pages/ContactoPage";
 import PlanViviendaPage from "@/pages/PlanViviendaPage";
+import PlanesPage from "@/pages/PlanesPage";
 import NotFound from "@/pages/not-found";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/valores" component={ValoresPage} />
       <Route path="/unete" component={UnetePage} />
       <Route path="/contacto" component={ContactoPage} />
+      <Route path="/planes" component={PlanesPage} />
       <Route path="/planes/vivienda" component={PlanViviendaPage} />
       <Route component={NotFound} />
     </Switch>

@@ -24,6 +24,7 @@ export function Navbar() {
     { name: t("nav.inicio"), path: "/" },
     { name: t("nav.nosotros"), path: "/quienes-somos" },
     { name: t("nav.propuestas"), path: "/propuestas" },
+    { name: t("nav.planes"), path: "/planes" },
     { name: t("nav.logros"), path: "/logros" },
     { name: t("nav.noticias"), path: "/noticias" },
   ];

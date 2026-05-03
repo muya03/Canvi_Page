@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-import { Trophy, BookOpen, Users, Heart, Star, FileText, Building2, Globe, CalendarDays } from "lucide-react";
+import { Trophy, BookOpen, Users, Heart, Star, FileText, Building2, Globe, CalendarDays, Home, ArrowRight } from "lucide-react";
 
 const categories = [
   {
@@ -187,6 +187,61 @@ export default function LogrosPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Logro Histórico Destacado — Bono Alquiler */}
+      <section className="py-16 bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden border-2 border-primary shadow-xl shadow-primary/10"
+          >
+            <div className="bg-secondary p-8 md:p-12">
+              <div className="flex flex-col md:flex-row gap-10 items-start">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-5">
+                    <Star size={16} className="text-primary fill-primary" />
+                    <span className="text-primary font-black font-display uppercase tracking-widest text-sm">
+                      {t("page.achievements.bono.badge")}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                      <Home size={24} />
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-black font-display text-white leading-tight">
+                      {t("page.achievements.bono.title")}
+                    </h2>
+                  </div>
+                  <p className="text-white/80 leading-relaxed mb-4 text-lg">
+                    {t("page.achievements.bono.desc")}
+                  </p>
+                  <p className="text-white/60 leading-relaxed mb-8">
+                    {t("page.achievements.bono.detail")}
+                  </p>
+                  <Button asChild className="bg-primary hover:bg-primary/90 text-white font-display font-bold uppercase tracking-wider rounded-sm px-6 py-4 h-auto">
+                    <Link href="/planes/vivienda">
+                      <ArrowRight size={16} className="mr-2" />
+                      Ver Plan de Vivienda
+                    </Link>
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-4 md:w-48 shrink-0">
+                  <div className="bg-primary/20 border border-primary/30 rounded-xl p-6 text-center">
+                    <span className="block text-4xl font-black text-primary font-display leading-none mb-2">400.000€</span>
+                    <span className="text-white/60 text-sm leading-snug">Partida presupuestaria exclusiva para Castellón</span>
+                  </div>
+                  <div className="bg-white/10 border border-white/10 rounded-xl p-5 text-center">
+                    <span className="block text-2xl font-black text-primary font-display leading-none mb-1">Único</span>
+                    <span className="text-white/60 text-xs leading-snug">Primer bono de alquiler joven exclusivo de la ciudad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
