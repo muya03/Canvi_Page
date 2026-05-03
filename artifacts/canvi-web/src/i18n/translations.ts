@@ -59,36 +59,70 @@ export const translations = {
     "proposals.badge": "Campaña 2026",
     "proposals.title": "Nuestras Propuestas",
     "proposals.desc": "Soluciones reales diseñadas desde nuestra experiencia en las aulas para mejorar tu día a día en la universidad.",
+    "proposals.viewAll": "Ver todas las propuestas",
     
     "proposals.1.title": "Exámenes y Evaluación",
     "proposals.1.items": [
-      "Referéndum sobre los calendarios de exámenes finales",
+      "Referéndum sobre calendarios de exámenes finales",
       "Cambiar normativa de evaluación para ganar más derechos",
-      "Aulas de estudio 24h/7 días fuera de la biblioteca",
+      "Aulas de estudio 24h/7 días fuera del horario de biblioteca",
       "Clases del 2º cuatrimestre finalizan el miércoles anterior a exámenes",
-      "Tolerancia en retrasos de transporte en días de examen"
+      "Tolerancia oficial en retrasos de transporte en días de examen"
     ],
     "proposals.2.title": "Delegaciones y Representación",
     "proposals.2.items": [
-      "Dotar a las delegaciones de centro de un presupuesto propio",
-      "Ayudar a estructurar y activar la vida participativa del centro",
-      "Creación de una comisión de asociaciones",
-      "Blindar la autonomía e independencia del Consejo",
-      "Transparencia: portal, agenda pública y boletín mensual"
+      "Presupuesto propio para las delegaciones de centro",
+      "Estructuración y activación de la vida participativa del centro",
+      "Manual de Iniciación a la UJI para el estudiantado de primer año",
+      "Comisión de asociaciones con voz en el Consell",
+      "Autonomía e independencia del Consell frente a injerencias externas",
+      "Transparencia: portal público, agenda y boletín mensual",
+      "Mayor representación estudiantil en sectoriales nacionales"
     ],
     "proposals.3.title": "Bienestar Estudiantil",
     "proposals.3.items": [
       "Aumentar el ratio de psicólogos/estudiante en el SAP",
-      "Ayudas y becas basadas en necesidad/renta, no en mérito",
-      "Semana de Bienvenida y recuperar las Paellas (doble paellas)",
-      "Zonas de descanso y ocio ampliadas en cada centro",
-      "Menú subvencionado y adaptado a todo tipo de dietas"
+      "Becas y ayudas basadas en necesidad real y renta, no en mérito",
+      "Mantener y mejorar los eventos históricos del CEUJI (Paellas)",
+      "Menú de comedor subvencionado (modelo Universidad de Granada)",
+      "Ampliar zonas de ocio y descanso en el campus",
+      "Zonas de desconexión digital en el campus",
+      "Ampliar el horario de la sala de musculación",
+      "Mejora de infraestructuras y electrificación de la biblioteca",
+      "Modernización de la reprografía con sistema de buzones",
+      "Mejora de la infraestructura y servicios de la Casa del Estudiante"
     ],
     "proposals.4.title": "Movilidad y Transporte",
     "proposals.4.items": [
-      "Actuar por el problema del transporte público en horas punta",
-      "Reforzar líneas de bus y TRAM",
-      "Bono gratuito para estudiantes universitarios"
+      "Exigencia de líneas nocturnas de autobús que conecten el campus",
+      "Más frecuencia de TRAM y bus en horas de máxima demanda estudiantil",
+      "Protocolo oficial de tolerancia en exámenes por retrasos de transporte"
+    ],
+    "proposals.5.title": "Normativa y Derechos",
+    "proposals.5.items": [
+      "Normativa de graduación para corregir irregularidades en las ceremonias",
+      "Conciliación entre representación estudiantil y órganos colegiados",
+      "Dispensa de asistencia por conciliación laboral según estatutos",
+      "Prohibición de obligatoriedad de compra de libros o software",
+      "Carnet universitario físico para la identificación del estudiantado",
+      "Regular el derecho de huelga estudiantil conforme a la LOSU"
+    ],
+    "proposals.6.title": "Internacionalización y Lenguas",
+    "proposals.6.items": [
+      "Exámenes siempre disponibles en valenciano y castellano",
+      "Ampliar acreditaciones de idiomas disponibles en la UJI",
+      "Escucha activa a la comunidad internacional para mejorar su acogida"
+    ],
+    "proposals.7.title": "Inclusión y Diversidad",
+    "proposals.7.items": [
+      "Campañas de concienciación sobre el acoso en la universidad",
+      "Mejora de la inclusión de estudiantes con discapacidad",
+      "Actividades de integración social para nuevos estudiantes"
+    ],
+    "proposals.8.title": "Tecnología y Estudios",
+    "proposals.8.items": [
+      "Fomento de metodologías docentes innovadoras e inteligencia artificial",
+      "La universidad debe proveer licencias del software necesario para los estudios"
     ],
 
     "achievements.badge": "Legislatura 2024–2026",
@@ -357,36 +391,70 @@ export const translations = {
     "proposals.badge": "Campanya 2026",
     "proposals.title": "Les Nostres Propostes",
     "proposals.desc": "Solucions reals dissenyades des de la nostra experiència a les aules per a millorar el teu dia a dia a la universitat.",
+    "proposals.viewAll": "Veure totes les propostes",
     
     "proposals.1.title": "Exàmens i Avaluació",
     "proposals.1.items": [
-      "Referèndum sobre els calendaris d'exàmens finals",
+      "Referèndum sobre calendaris d'exàmens finals",
       "Canviar normativa d'avaluació per a guanyar més drets",
-      "Aules d'estudi 24h/7 dies fora de la biblioteca",
+      "Aules d'estudi 24h/7 dies fora de l'horari de biblioteca",
       "Classes del 2n quadrimestre finalitzen el dimecres anterior a exàmens",
-      "Tolerància en retards de transport en dies d'examen"
+      "Tolerància oficial en retards de transport en dies d'examen"
     ],
     "proposals.2.title": "Delegacions i Representació",
     "proposals.2.items": [
-      "Dotar a les delegacions de centre d'un pressupost propi",
-      "Ajudar a estructurar i activar la vida participativa del centre",
-      "Creació d'una comissió d'associacions",
-      "Blindar l'autonomia i independència del Consell",
-      "Transparència: portal, agenda pública i butlletí mensual"
+      "Pressupost propi per a les delegacions de centre",
+      "Estructuració i activació de la vida participativa del centre",
+      "Manual d'Iniciació a l'UJI per a l'estudiantat de primer any",
+      "Comissió d'associacions amb veu en el Consell",
+      "Autonomia i independència del Consell davant ingerències externes",
+      "Transparència: portal públic, agenda i butlletí mensual",
+      "Major representació estudiantil en sectorials nacionals"
     ],
     "proposals.3.title": "Benestar Estudiantil",
     "proposals.3.items": [
       "Augmentar la ràtio de psicòlegs/estudiant en el SAP",
-      "Ajudes i beques basades en necessitat/renda, no en mèrit",
-      "Setmana de Benvinguda i recuperar les Paelles (doble paelles)",
-      "Zones de descans i oci ampliades en cada centre",
-      "Menú subvencionat i adaptat a tot tipus de dietes"
+      "Beques i ajudes basades en necessitat real i renda, no en mèrit",
+      "Mantenir i millorar els esdeveniments històrics del CEUJI (Paelles)",
+      "Menú de menjador subvencionat (model Universitat de Granada)",
+      "Ampliar zones d'oci i descans al campus",
+      "Zones de desconnexió digital al campus",
+      "Ampliar l'horari de la sala de musculació",
+      "Millora d'infraestructures i electrificació de la biblioteca",
+      "Modernització de la reprografia amb sistema de bústies",
+      "Millora de la infraestructura i serveis de la Casa de l'Estudiantat"
     ],
     "proposals.4.title": "Mobilitat i Transport",
     "proposals.4.items": [
-      "Actuar pel problema del transport públic en hores punta",
-      "Reforçar línies de bus i TRAM",
-      "Bo gratuït per a estudiants universitaris"
+      "Exigència de línies nocturnes d'autobús que connecten el campus",
+      "Més freqüència de TRAM i bus en hores de màxima demanda estudiantil",
+      "Protocol oficial de tolerància en exàmens per retards de transport"
+    ],
+    "proposals.5.title": "Normativa i Drets",
+    "proposals.5.items": [
+      "Normativa de graduació per a corregir irregularitats en les cerimònies",
+      "Conciliació entre representació estudiantil i òrgans col·legiats",
+      "Dispensa d'assistència per conciliació laboral segons estatuts",
+      "Prohibició d'obligatorietat de compra de llibres o programari",
+      "Carnet universitari físic per a la identificació de l'estudiantat",
+      "Regular el dret de vaga estudiantil conforme a la LOSU"
+    ],
+    "proposals.6.title": "Internacionalització i Llengües",
+    "proposals.6.items": [
+      "Exàmens sempre disponibles en valencià i castellà",
+      "Ampliar acreditacions d'idiomes disponibles a l'UJI",
+      "Escolta activa a la comunitat internacional per millorar la seua acollida"
+    ],
+    "proposals.7.title": "Inclusió i Diversitat",
+    "proposals.7.items": [
+      "Campanyes de conscienciació sobre l'assetjament a la universitat",
+      "Millora de la inclusió d'estudiants amb discapacitat",
+      "Activitats d'integració social per a nous estudiants"
+    ],
+    "proposals.8.title": "Tecnologia i Estudis",
+    "proposals.8.items": [
+      "Foment de metodologies docents innovadores i intel·ligència artificial",
+      "La universitat ha de proveir llicències del programari necessari per als estudis"
     ],
 
     "achievements.badge": "Legislatura 2024–2026",
