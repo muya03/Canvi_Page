@@ -11,42 +11,51 @@ export default function NoticiasPage() {
   const { t } = useLanguage();
   const { toast } = useToast();
 
+  const base = import.meta.env.BASE_URL;
+
   const news = [
+    {
+      title: t("news.bono.title"),
+      date: t("news.bono.date"),
+      desc: t("news.bono.desc"),
+      photo: `${base}images/noticias/bono-alquiler-01.jpg`,
+      href: "/noticias/bono-alquiler-400k",
+      featured: true
+    },
     {
       title: t("news.1.title"),
       date: t("news.1.date"),
       desc: t("news.1.desc"),
-      img: "bg-muted-foreground/20"
+      photo: null,
+      href: "#"
     },
     {
       title: t("news.2.title"),
       date: t("news.2.date"),
       desc: t("news.2.desc"),
-      img: "bg-muted-foreground/20"
+      photo: null,
+      href: "#"
     },
     {
       title: t("news.3.title"),
       date: t("news.3.date"),
       desc: t("news.3.desc"),
-      img: "bg-muted-foreground/20"
+      photo: null,
+      href: "#"
     },
     {
       title: t("page.news.4.title"),
       date: t("page.news.4.date"),
       desc: t("page.news.4.desc"),
-      img: "bg-muted-foreground/20"
+      photo: null,
+      href: "#"
     },
     {
       title: t("page.news.5.title"),
       date: t("page.news.5.date"),
       desc: t("page.news.5.desc"),
-      img: "bg-muted-foreground/20"
-    },
-    {
-      title: t("page.news.6.title"),
-      date: t("page.news.6.date"),
-      desc: t("page.news.6.desc"),
-      img: "bg-muted-foreground/20"
+      photo: null,
+      href: "#"
     }
   ];
 
@@ -76,31 +85,49 @@ export default function NoticiasPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
+                className={item.featured ? "md:col-span-2 lg:col-span-1" : ""}
               >
-                <Card className="h-full bg-card border-border shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group">
-                  <div className={`w-full h-56 ${item.img} flex items-center justify-center overflow-hidden relative`}>
-                    <img 
-                      src={`${import.meta.env.BASE_URL}canvi-logo-parcial.png`} 
-                      alt="Canvi"
-                      className="h-28 opacity-20 group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                  <CardHeader className="pb-3 pt-6 flex-none">
-                    <div className="inline-block bg-muted text-muted-foreground px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3">
-                      {item.date}
+                <Link href={item.href} className="block h-full">
+                  <Card className={`h-full bg-card border-border shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group cursor-pointer ${item.featured ? "border-2 border-primary" : ""}`}>
+                    <div className="w-full h-56 bg-muted flex items-center justify-center overflow-hidden relative">
+                      {item.photo ? (
+                        <img
+                          src={item.photo}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <>
+                          <img
+                            src={`${base}canvi-logo-parcial.png`}
+                            alt="Canvi"
+                            className="h-28 opacity-20 group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </>
+                      )}
+                      {item.featured && (
+                        <div className="absolute top-3 left-3 bg-primary text-white text-xs font-black font-display uppercase tracking-wider px-3 py-1 rounded-full">
+                          Última hora
+                        </div>
+                      )}
                     </div>
-                    <h4 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">{item.title}</h4>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex flex-col justify-between">
-                    <p className="text-muted-foreground mb-6 line-clamp-3">{item.desc}</p>
-                    <div className="mt-auto">
-                      <span className="text-sm font-bold font-display uppercase tracking-wider text-primary group-hover:underline cursor-pointer">
-                        {t("nav.ver-mas")} →
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                    <CardHeader className="pb-3 pt-6 flex-none">
+                      <div className="inline-block bg-muted text-muted-foreground px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3">
+                        {item.date}
+                      </div>
+                      <h4 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">{item.title}</h4>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      <p className="text-muted-foreground mb-6 line-clamp-3">{item.desc}</p>
+                      <div className="mt-auto">
+                        <span className="text-sm font-bold font-display uppercase tracking-wider text-primary group-hover:underline">
+                          {t("nav.ver-mas")} →
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </div>
