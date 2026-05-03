@@ -28,8 +28,8 @@ export function News() {
       title: t("news.1.title"),
       date: t("news.1.date"),
       desc: t("news.1.desc"),
-      photo: null,
-      href: "/noticias"
+      photo: `${base}images/noticias/recogida-propuestas-01.jpg`,
+      href: "/noticias/recogida-propuestas"
     }
   ];
 

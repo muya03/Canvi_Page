@@ -14,6 +14,7 @@ import PlanViviendaPage from "@/pages/PlanViviendaPage";
 import PlanesPage from "@/pages/PlanesPage";
 import NoticiaBonoAlquilerPage from "@/pages/NoticiaBonoAlquilerPage";
 import NoticiaSala24hPage from "@/pages/NoticiaSala24hPage";
+import NoticiaRecogidaPropuestasPage from "@/pages/NoticiaRecogidaPropuestasPage";
 import NotFound from "@/pages/not-found";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/noticias" component={NoticiasPage} />
       <Route path="/noticias/bono-alquiler-400k" component={NoticiaBonoAlquilerPage} />
       <Route path="/noticias/sala-estudio-24h" component={NoticiaSala24hPage} />
+      <Route path="/noticias/recogida-propuestas" component={NoticiaRecogidaPropuestasPage} />
       <Route path="/valores" component={ValoresPage} />
       <Route path="/unete" component={UnetePage} />
       <Route path="/contacto" component={ContactoPage} />

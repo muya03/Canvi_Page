@@ -33,8 +33,8 @@ export default function NoticiasPage() {
       title: t("news.1.title"),
       date: t("news.1.date"),
       desc: t("news.1.desc"),
-      photo: null,
-      href: "#"
+      photo: `${base}images/noticias/recogida-propuestas-01.jpg`,
+      href: "/noticias/recogida-propuestas"
     },
     {
       title: t("news.2.title"),
