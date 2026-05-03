@@ -10,7 +10,7 @@ const img = (file: string) => `${base}images/team/${file}`;
 const titulars = [
   { initials: "PI", name: "Praise Ijeoma Iheanyi Anyanwu", role: "Cabeza de Lista", photo: img("praise.jpg"), featured: true },
   { initials: "AL", name: "Álex López Damas", role: "Membre del Consell", photo: img("alex_l.jpg") },
-  { initials: "SP", name: "Sergi Pérez Serra", role: "Membre del Consell", photo: img("sergi.jpg") },
+  { initials: "SP", name: "Sergi Pérez Serra", role: "Membre del Consell", photo: img("sergi.jpg"), scale: 1.5, objectPosition: "50% 10%" },
   { initials: "YR", name: "Yolanda Rico Pyper", role: "Membre del Consell" },
   { initials: "AB", name: "Alexandru Cristian Butaru", role: "Membre del Consell", photo: img("alex_b.png") },
   { initials: "IL", name: "Irene Llansola Rico", role: "Membre del Consell" },
@@ -20,8 +20,8 @@ const titulars = [
   { initials: "SC", name: "Silvia Climent Perelló", role: "Representant FCJE", photo: img("silvia.jpg") },
   { initials: "PV", name: "Pau Valcárcel Redón", role: "Membre del Consell" },
   { initials: "LG", name: "Lydia Gómez López", role: "Representant FCS" },
-  { initials: "ÓS", name: "Óscar Sáez Martín", role: "Membre del Consell", photo: img("oscar.jpg") },
-  { initials: "MP", name: "Marina Peiro Comba", role: "Representant FCJE", photo: img("marina.jpg") },
+  { initials: "ÓS", name: "Óscar Sáez Martín", role: "Membre del Consell", photo: img("oscar.jpg"), objectPosition: "50% 10%" },
+  { initials: "MP", name: "Marina Peiro Comba", role: "Representant FCJE", photo: img("marina.jpg"), objectPosition: "50% 15%" },
   { initials: "FS", name: "Favio Scarfo Manzaneda", role: "Representant FCS" },
   { initials: "VN", name: "Valeria Nuño Gil", role: "Representant ESTCE", photo: img("valeria.jpg") },
   { initials: "VC", name: "Valentín Carpentier Anglés", role: "Representant FCJE" },
@@ -29,7 +29,7 @@ const titulars = [
   { initials: "GV", name: "Germán Valderrama García", role: "Representant FCJE" },
   { initials: "YE", name: "Yousra Reklaoui El Hadri", role: "Representant ESTCE", photo: img("yousra.jpg") },
   { initials: "JC", name: "Joan Cerezuela Soto", role: "Representant FCS" },
-  { initials: "EA", name: "Esther María Alarcón García", role: "Representant ESTCE", photo: img("esther.jpg") },
+  { initials: "EA", name: "Esther María Alarcón García", role: "Representant ESTCE", photo: img("esther.jpg"), objectPosition: "50% 15%" },
   { initials: "GN", name: "Gabriel Guitérrez Navarro", role: "Representant FCS" },
   { initials: "AG", name: "Aday Guerra Suárez", role: "Representant FCHS", photo: img("aday.jpg") },
   { initials: "EM", name: "Eduardo Martín Fayos", role: "Representant ESTCE", photo: img("eduardo.jpg") },
@@ -56,7 +56,13 @@ const delegados = [
   { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
 ];
 
-function Avatar({ photo, initials, size = "md" }: { photo?: string; initials: string; size?: "sm" | "md" | "lg" }) {
+function Avatar({ photo, initials, size = "md", objectPosition, scale }: {
+  photo?: string;
+  initials: string;
+  size?: "sm" | "md" | "lg";
+  objectPosition?: string;
+  scale?: number;
+}) {
   const sizes = {
     sm: "w-10 h-10 text-xs",
     md: "w-14 h-14 text-sm",
@@ -64,11 +70,18 @@ function Avatar({ photo, initials, size = "md" }: { photo?: string; initials: st
   };
   if (photo) {
     return (
-      <img
-        src={photo}
-        alt={initials}
-        className={`${sizes[size]} rounded-full object-cover object-top border-2 border-border shrink-0`}
-      />
+      <div className={`${sizes[size]} rounded-full border-2 border-border shrink-0 overflow-hidden`}>
+        <img
+          src={photo}
+          alt={initials}
+          className="w-full h-full object-cover"
+          style={{
+            objectPosition: objectPosition ?? "50% 0%",
+            transform: scale ? `scale(${scale})` : undefined,
+            transformOrigin: "50% 20%",
+          }}
+        />
+      </div>
     );
   }
   return (
@@ -160,7 +173,7 @@ export default function QuienesSomosPage() {
                 transition={{ delay: i * 0.04 }}
                 className="bg-card p-5 rounded-xl border border-border shadow-sm text-center flex flex-col items-center hover:border-primary/50 transition-colors"
               >
-                <Avatar photo={member.photo} initials={member.initials} size="md" />
+                <Avatar photo={member.photo} initials={member.initials} size="md" objectPosition={(member as any).objectPosition} scale={(member as any).scale} />
                 <h3 className="text-sm font-bold leading-snug mb-1 mt-3">{member.name}</h3>
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary/80">{member.role}</p>
               </motion.div>
