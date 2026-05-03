@@ -2,7 +2,9 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Proposals } from "@/components/sections/Proposals";
+import { HomePlansTeaser } from "@/components/sections/HomePlansTeaser";
 import { Achievements } from "@/components/sections/Achievements";
+import { HomeBonoHighlight } from "@/components/sections/HomeBonoHighlight";
 import { Values } from "@/components/sections/Values";
 import { News } from "@/components/sections/News";
 import { JoinUs } from "@/components/sections/JoinUs";
@@ -18,7 +20,9 @@ export default function Home() {
         <About />
         <Values />
         <Proposals />
+        <HomePlansTeaser />
         <Achievements />
+        <HomeBonoHighlight />
         <News />
         <JoinUs />
         <Contact />
