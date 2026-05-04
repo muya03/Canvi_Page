@@ -50,10 +50,10 @@ const suplents = [
 ];
 
 const delegados = [
-  { initials: "SP", name: "Sergi Pérez Serra", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals" },
-  { initials: "IL", name: "Irene Llansola Rico", faculty: "FCS", fullName: "Facultat de Ciències de la Salut" },
+  { initials: "SP", name: "Sergi Pérez Serra", faculty: "ESTCE", fullName: "Escola Superior de Tecnologia i Ciències Experimentals", photo: img("sergi.jpg"), objectPosition: "50% 35%", scale: 1.5 },
+  { initials: "IL", name: "Irene Llansola Rico", faculty: "FCS", fullName: "Facultat de Ciències de la Salut", photo: img("irene.jpg"), objectPosition: "50% 15%" },
   { initials: "YR", name: "Yolanda Rico Pyper", faculty: "FCHS", fullName: "Facultat de Ciències Humanes i Socials" },
-  { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques" },
+  { initials: "AB", name: "Alexandru Cristian Butaru", faculty: "FCJE", fullName: "Facultat de Ciències Jurídiques i Econòmiques", photo: img("alex_b.png"), objectPosition: "50% 10%" },
 ];
 
 function Avatar({ photo, initials, size = "md", objectPosition, scale }: {
@@ -249,8 +249,8 @@ export default function QuienesSomosPage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-card border border-border border-t-4 border-t-primary rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xl font-bold font-display tracking-widest mb-4 mx-auto">
-                  {del.initials}
+                <div className="mb-4 mx-auto w-fit">
+                  <Avatar photo={del.photo} initials={del.initials} size="lg" objectPosition={del.objectPosition} scale={del.scale} />
                 </div>
                 <div className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
                   {del.faculty}
