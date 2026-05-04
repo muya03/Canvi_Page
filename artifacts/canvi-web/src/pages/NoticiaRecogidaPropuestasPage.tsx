@@ -102,8 +102,8 @@ export default function NoticiaRecogidaPropuestasPage() {
               className="rounded-2xl overflow-hidden border border-border shadow-sm my-10"
             >
               <img
-                src={`${base}images/noticias/recogida-propuestas-02.jpg`}
-                alt="Estudiantes aportando propuestas en el stand de CANVI en la ESTCE"
+                src={`${base}images/noticias/recogida-propuestas-interior.jpg`}
+                alt="Equipo de CANVI en el stand de la ESTCE durante la campaña de recogida de propuestas"
                 className="w-full object-cover"
               />
               <p className="text-xs text-muted-foreground text-center py-3 px-4 bg-muted">
