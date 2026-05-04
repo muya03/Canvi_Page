@@ -13,7 +13,7 @@ const titulars = [
   { initials: "SP", name: "Sergi Pérez Serra", role: "Membre del Consell", photo: img("sergi.jpg"), scale: 1.5, objectPosition: "50% 35%" },
   { initials: "YR", name: "Yolanda Rico Pyper", role: "Membre del Consell" },
   { initials: "AB", name: "Alexandru Cristian Butaru", role: "Membre del Consell", photo: img("alex_b.png") },
-  { initials: "IL", name: "Irene Llansola Rico", role: "Membre del Consell" }, 
+  { initials: "IL", name: "Irene Llansola Rico", role: "Membre del Consell", photo: img("irene.jpg"), objectPosition: "50% 15%" },
   { initials: "OE", name: "Otman El Kakmaoui Sakif", role: "Membre del Consell", photo: img("otman.jpg") },
   { initials: "KA", name: "Karen Abrego Rosas", role: "Membre del Consell", photo: img("karen_abrego.jpg"), objectPosition: "50% 20%" },
   { initials: "DB", name: "Dhirar Abdelkader Bahloul Rouab", role: "Membre del Consell", photo: img("dhirar.jpg") },
