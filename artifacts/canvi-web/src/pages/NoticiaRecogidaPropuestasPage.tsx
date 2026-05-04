@@ -21,8 +21,8 @@ export default function NoticiaRecogidaPropuestasPage() {
           className="w-full max-h-[520px] overflow-hidden"
         >
           <img
-            src={`${base}images/noticias/recogida-propuestas-01.jpg`}
-            alt="Stand de CANVI en la ESTCE durante la campaña de recogida de propuestas"
+            src={`${base}images/noticias/recogida-propuestas-portada.jpg`}
+            alt="Equipo de CANVI en el stand de recogida de propuestas"
             className="w-full object-cover object-center max-h-[520px]"
           />
         </motion.div>
