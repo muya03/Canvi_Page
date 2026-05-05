@@ -27,6 +27,7 @@ export function Navbar() {
     { name: t("nav.planes"), path: "/planes" },
     { name: t("nav.logros"), path: "/logros" },
     { name: t("nav.noticias"), path: "/noticias" },
+    { name: t("nav.juego"), path: "/tinder-propuestas", highlight: true },
   ];
 
   return (
@@ -55,7 +56,13 @@ export function Navbar() {
                 href={link.path}
                 className={cn(
                   "text-sm font-bold font-display uppercase tracking-wider transition-colors",
-                  location === link.path ? "text-primary" : "text-foreground hover:text-primary"
+                  (link as any).highlight
+                    ? location === link.path
+                      ? "text-primary border border-primary rounded-sm px-3 py-1"
+                      : "text-primary border border-primary/40 rounded-sm px-3 py-1 hover:border-primary hover:bg-primary/5"
+                    : location === link.path
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
                 )}
               >
                 {link.name}
@@ -124,7 +131,7 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
                 "text-left font-display font-bold uppercase tracking-wider py-3 px-4 rounded hover:bg-muted",
-                location === link.path ? "text-primary bg-muted" : "text-foreground hover:text-primary"
+                location === link.path ? "text-primary bg-muted" : (link as any).highlight ? "text-primary hover:bg-primary/5" : "text-foreground hover:text-primary"
               )}
             >
               {link.name}
