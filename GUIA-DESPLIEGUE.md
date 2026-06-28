@@ -84,9 +84,9 @@ Descarga desde: https://git-scm.com/downloads
 
 ## 3. Descargar el proyecto
 
-### Opción A: Descargar como ZIP desde Replit
+### Opción A: Descargar como ZIP
 
-1. En Replit, haz clic en los tres puntos `···` del panel izquierdo o en el menú principal.
+1. Haz clic en los tres puntos `···` del panel izquierdo o en el menú principal.
 2. Selecciona **"Download as zip"** o **"Descargar como zip"**.
 3. Se descargará un archivo `.zip` en tu ordenador.
 4. Extrae el zip en la carpeta donde quieras tener el proyecto (por ejemplo `Documentos/canvi-web`).
